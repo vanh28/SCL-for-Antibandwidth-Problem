@@ -1,0 +1,36 @@
+[runlim] version:		1.10
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		30000 MB
+[runlim] argv[0]:		/home/hvanh28/Minizinc/MiniZincIDE-2.8.6-bundle-linux-x86_64/bin/minizinc
+[runlim] argv[1]:		--solver
+[runlim] argv[2]:		Chuffed
+[runlim] argv[3]:		--time-limit
+[runlim] argv[4]:		1800000
+[runlim] argv[5]:		--output-to-file
+[runlim] argv[6]:		4/D-bcsstk01-1.log
+[runlim] argv[7]:		--output-time
+[runlim] argv[8]:		--statistics
+[runlim] argv[9]:		CP-MZ-Chuffed.mzn
+[runlim] argv[10]:		D-bcsstk01.dzn
+[runlim] start:			Thu Oct 10 03:16:12 2024
+[runlim] main pid:		29314
+[runlim] log captured:
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=401
+%%%mzn-stat: flatIntConstraints=529
+%%%mzn-stat: method="maximize"
+%%%mzn-stat: flatTime=0.140141
+%%%mzn-stat-end
+WARNING: the --time-out flag has recently been changed.The time-out is now provided in milliseconds instead of seconds
+%%%mzn-stat: nSolutions=1
+%%%mzn-stat-end
+[runlim] end:			Thu Oct 10 03:16:13 2024
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		5
+[runlim] real:			1.12 seconds
+[runlim] time:			0.58 seconds
+[runlim] space:			41.0 MB
+[runlim] samples:		6

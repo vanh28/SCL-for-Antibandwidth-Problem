@@ -1,0 +1,80 @@
+% Pruned 49912 learnt clauses
+% Pruned 49819 learnt clauses
+% Pruned 49777 learnt clauses
+% Pruned 49849 learnt clauses
+% Pruned 49744 learnt clauses
+% Pruned 49915 learnt clauses
+% Pruned 49892 learnt clauses
+% Pruned 49870 learnt clauses
+% Pruned 49817 learnt clauses
+% Pruned 49880 learnt clauses
+% Pruned 49881 learnt clauses
+% Pruned 49876 learnt clauses
+% Pruned 49863 learnt clauses
+% Pruned 49878 learnt clauses
+% Pruned 49878 learnt clauses
+% Pruned 49862 learnt clauses
+% Pruned 49878 learnt clauses
+% Pruned 49875 learnt clauses
+% Pruned 49883 learnt clauses
+% Pruned 49890 learnt clauses
+% Pruned 49868 learnt clauses
+% Pruned 49863 learnt clauses
+% Pruned 49893 learnt clauses
+% Pruned 49886 learnt clauses
+% Pruned 49882 learnt clauses
+% Pruned 49881 learnt clauses
+% Pruned 49882 learnt clauses
+% Pruned 49858 learnt clauses
+% Pruned 49879 learnt clauses
+% Pruned 49841 learnt clauses
+% Pruned 49879 learnt clauses
+% Pruned 49874 learnt clauses
+% Pruned 49852 learnt clauses
+% Pruned 49872 learnt clauses
+% Pruned 49870 learnt clauses
+% Pruned 49871 learnt clauses
+% Pruned 49866 learnt clauses
+% Pruned 49789 learnt clauses
+% Pruned 49864 learnt clauses
+% Pruned 49850 learnt clauses
+% Pruned 49841 learnt clauses
+% Pruned 49863 learnt clauses
+% Pruned 49863 learnt clauses
+% Pruned 49843 learnt clauses
+% Pruned 49824 learnt clauses
+% Pruned 49843 learnt clauses
+% Pruned 49825 learnt clauses
+% Pruned 49893 learnt clauses
+% Pruned 49859 learnt clauses
+% Pruned 49867 learnt clauses
+% Pruned 49864 learnt clauses
+% Pruned 49862 learnt clauses
+% Pruned 49847 learnt clauses
+% Pruned 49860 learnt clauses
+%%%mzn-stat: nodes=3363402
+%%%mzn-stat: failures=2769094
+%%%mzn-stat: restarts=4
+%%%mzn-stat: variables=126770
+%%%mzn-stat: intVars=524
+%%%mzn-stat: boolVariables=126244
+%%%mzn-stat: propagators=879
+%%%mzn-stat: propagations=1748708346
+%%%mzn-stat: peakDepth=340
+%%%mzn-stat: nogoods=2769094
+%%%mzn-stat: backjumps=593916
+%%%mzn-stat: peakMem=0.00
+%%%mzn-stat: time=1799.983
+%%%mzn-stat: initTime=0.112
+%%%mzn-stat: solveTime=1799.871
+%%%mzn-stat: objective=22
+%%%mzn-stat: optTime=13.710
+%%%mzn-stat: baseMem=0.00
+%%%mzn-stat: trailMem=0.28
+%%%mzn-stat: randomSeed=737629965
+%%%mzn-stat-end
+Objective value (b): 22
+Labels: [16, 37, 78, 9, 6, 41, 61, 52, 59, 65, 5, 21, 80, 12, 46, 39, 53, 79, 63, 11, 26, 70, 20, 56, 62, 58, 83, 64, 57, 44, 40, 71, 73, 77, 48, 8, 43, 29, 17, 66, 34, 30, 76, 36, 22, 49, 25, 68, 27, 35, 14, 18, 4, 69, 13, 2, 23, 7, 28, 32, 84, 81, 47, 72, 3, 54, 74, 10, 31, 33, 1, 24, 75, 82, 38, 50, 60, 85, 45, 15, 51, 55, 42, 19, 67]
+% time elapsed: 1800.16 s
+----------
+% Time limit exceeded!

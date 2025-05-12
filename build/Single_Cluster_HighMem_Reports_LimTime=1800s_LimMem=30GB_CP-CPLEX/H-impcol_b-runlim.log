@@ -1,0 +1,137 @@
+[runlim] version:		1.10
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	1800 seconds
+[runlim] space limit:		30000 MB
+[runlim] argv[0]:		oplrun
+[runlim] argv[1]:		-l
+[runlim] argv[2]:		3/H-impcolb-ver1.out
+[runlim] argv[3]:		CP-CPLEX.mod
+[runlim] argv[4]:		H-impcolb.dat
+[runlim] start:			Tue Oct  8 10:50:40 2024
+[runlim] main pid:		3319
+[runlim] log captured:
+
+<<< setup
+
+
+<<< generate
+
+ ! --------------------------------------------------- CP Optimizer 22.1.1.0 --
+ ! Maximization problem - 60 variables, 285 constraints
+ ! TimeLimit            = 1800
+ ! Initial process time : 0.00s (0.00s extraction + 0.00s propagation)
+ !  . Log search space  : 346.1 (before), 346.1 (after)
+ !  . Memory usage      : 477.3 kB (before), 477.3 kB (after)
+ ! Using parallel search with 8 workers.
+ ! ----------------------------------------------------------------------------
+ !          Best Branches  Non-fixed    W       Branch decision
+                        0         60                 -
+ + New bound is 8
+                     1000         22    1   F    57  = labels(42)
+                     1000         21    2   F    51  = labels(25)
+                     1000         17    3   F    48  = labels(58)
+                     1000         21    4         9 != labels(21)
+                     1000         21    5        27 != labels(26)
+                     1000         12    6        24  = labels(46)
+                     1000         16    7   F    44  = labels(31)
+                     1000         21    8   F    58 != labels(46)
+                     2000         11    1   F    32  = labels(59)
+                     2000         15    3   F    15  = labels(23)
+                     2000          8    6        57 != labels(31)
+                     2000         18    8   F    18 != labels(3)
+                     2000         23    2        51 != labels(23)
+                     2000         26    4        13 != labels(55)
+                     2000         14    7        19  = labels(45)
+                     3000         25    3        23 != labels(58)
+                     2000         16    5   F    44  = labels(55)
+                     3000         20    1   F    32  = labels(24)
+                     3000         15    2   F    14  = labels(23)
+ ! Time = 0.05s, Average fail depth = 13, Memory usage = 6.9 MB
+ ! Current bound is 8
+ !          Best Branches  Non-fixed    W       Branch decision
+                     3000         15    4   F    10  = labels(55)
+                     3000         15    7   F    40 != labels(48)
+                     3000          9    8        57  = labels(33)
+                     4000         22    3        44  = labels(49)
+                     3000         16    5        14 != labels(58)
+                     3000          8    6        40 != labels(3)
+                     4000         15    1        30 != labels(31)
+                     4000         15    2   F    38  = labels(29)
+                     4000         11    8   F    46  = labels(22)
+                     5000         18    3        59  = labels(32)
+                     4000         24    5   F    14  = labels(55)
+                     4000         16    6        43 != labels(59)
+                     4000         16    7   F    53  = labels(57)
+                     5000         21    1        45 != labels(31)
+                     5000         17    2        30 != labels(31)
+                     4000         14    4        51 != labels(35)
+                     5000         15    8   F    47  = labels(23)
+                     6000         24    3        34 != labels(25)
+                     5000         20    4        19 != labels(47)
+                     5000         26    5        16 != labels(26)
+ ! Time = 0.08s, Average fail depth = 14, Memory usage = 8.7 MB
+ ! Current bound is 8
+ !          Best Branches  Non-fixed    W       Branch decision
+                     5000         20    6   F    37  = labels(15)
+                     5000         12    7   F    52  = labels(22)
+                     6000         13    1   F    38  = labels(58)
+                     6000         15    6   F    10  = labels(57)
+                     6000         13    7   F    55  = labels(23)
+                     6000         40    8   F    42  = labels(25)
+                     7000         14    1   F    13  = labels(31)
+                     6000         24    2         2  = labels(26)
+                     6000         18    4        36 != labels(25)
+                     6000         18    5        31  = labels(18)
+                     7000         12    7        27 != labels(57)
+                     7000         13    8         6 != labels(25)
+                     7000         16    2        39 != labels(25)
+                     7000         30    3            -
+                     8000         18    1        46 != labels(20)
+                     7000         11    4        11 != labels(17)
+                     7000         14    5        52 != labels(45)
+                     7000         20    6        34 != labels(57)
+                     8000         11    7   F    39  = labels(25)
+                     9000         16    1        19 != labels(17)
+ ! Time = 0.12s, Average fail depth = 14, Memory usage = 9.4 MB
+ ! Current bound is 8
+ !          Best Branches  Non-fixed    W       Branch decision
+                     8000         16    3        49 != labels(58)
+ *             8     7677  0.12s        8      (gap is 0.00%)
+ ! ----------------------------------------------------------------------------
+ ! Search completed, 1 solution found.
+ ! Best objective         : 8 (optimal - effective tol. is 0)
+ ! Best bound             : 8
+ ! ----------------------------------------------------------------------------
+ ! Number of branches     : 66638
+ ! Number of fails        : 30849
+ ! Total memory usage     : 12.6 MB (12.2 MB CP Optimizer + 0.4 MB Concert)
+ ! Time spent in solve    : 0.12s (0.12s engine + 0.00s extraction)
+ ! Search speed (br. / s) : 555316.7
+ ! ----------------------------------------------------------------------------
+
+<<< solve
+
+
+OBJECTIVE: 8
+Objective value (b): 8
+Labels:  [58 16 44 30 6 8 50 13 11 15 48 26 2 4 54 14 9 24 45 37 20 36 33 49 1 5 40
+     3 35 32 17 42 22 34 43 41 39 52 7 57 23 21 46 12 53 10 47 28 56 55 27
+     31 38 29 25 19 51 59 18]
+Vertex with maximum degree: 5
+
+<<< post process
+
+
+<<< done
+
+
+<<< engine log: 3/H-impcolb-ver1.out
+
+[runlim] end:			Tue Oct  8 10:50:40 2024
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			0.32 seconds
+[runlim] time:			0.53 seconds
+[runlim] space:			44.7 MB
+[runlim] samples:		1

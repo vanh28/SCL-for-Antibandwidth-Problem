@@ -1,0 +1,42 @@
+% Pruned 49986 learnt clauses
+% Pruned 49742 learnt clauses
+% Pruned 49968 learnt clauses
+% Pruned 49975 learnt clauses
+% Pruned 49859 learnt clauses
+% Pruned 49996 learnt clauses
+% Pruned 49955 learnt clauses
+% Pruned 49968 learnt clauses
+% Pruned 49899 learnt clauses
+% Pruned 49994 learnt clauses
+% Pruned 49988 learnt clauses
+% Pruned 49973 learnt clauses
+% Pruned 49968 learnt clauses
+% Pruned 49994 learnt clauses
+%%%mzn-stat: nodes=980328
+%%%mzn-stat: failures=781728
+%%%mzn-stat: restarts=4
+%%%mzn-stat: variables=168916
+%%%mzn-stat: intVars=595
+%%%mzn-stat: boolVariables=168319
+%%%mzn-stat: propagators=991
+%%%mzn-stat: propagations=447133311
+%%%mzn-stat: peakDepth=266
+%%%mzn-stat: nogoods=781728
+%%%mzn-stat: backjumps=198229
+%%%mzn-stat: peakMem=0.00
+%%%mzn-stat: time=384.142
+%%%mzn-stat: initTime=0.149
+%%%mzn-stat: solveTime=383.993
+%%%mzn-stat: objective=35
+%%%mzn-stat: optTime=175.001
+%%%mzn-stat: baseMem=0.00
+%%%mzn-stat: trailMem=0.28
+%%%mzn-stat: randomSeed=682984187
+%%%mzn-stat-end
+Objective value (b): 35
+Labels: [90, 80, 73, 79, 99, 96, 1, 74, 28, 25, 92, 20, 60, 33, 37, 78, 63, 7, 10, 45, 70, 3, 54, 6, 100, 71, 21, 41, 18, 39, 2, 76, 9, 98, 44, 59, 30, 91, 82, 23, 47, 17, 67, 88, 52, 15, 19, 62, 11, 93, 56, 84, 66, 55, 64, 43, 22, 97, 57, 89, 16, 12, 95, 86, 65, 40, 32, 31, 26, 36, 48, 51, 61, 46, 29, 8, 4, 50, 49, 81, 58, 14, 94, 75, 27, 72, 42, 35, 83, 77, 13, 5, 38, 85, 34, 69, 87, 53, 68, 24]
+% time elapsed: 384.33 s
+----------
+==========
+% time elapsed: 384.33 s
+% [b <= 35]

@@ -1,0 +1,49 @@
+[runlim] version:		1.10
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		30000 MB
+[runlim] argv[0]:		python3
+[runlim] argv[1]:		cp-sat.py
+[runlim] argv[2]:		U-662_bus.mtx.rnd
+[runlim] start:			Sat May 10 11:22:39 2025
+[runlim] main pid:		553594
+[runlim] sample:		10.8 time, 10.3 real, 832.3 MB
+[runlim] sample:		20.8 time, 20.3 real, 908.2 MB
+[runlim] sample:		74.7 time, 30.3 real, 6446.5 MB
+[runlim] sample:		153.8 time, 40.3 real, 7897.5 MB
+[runlim] sample:		233.1 time, 50.3 real, 8678.3 MB
+[runlim] sample:		312.4 time, 60.3 real, 9286.5 MB
+[runlim] sample:		391.6 time, 70.3 real, 10086.3 MB
+[runlim] sample:		466.2 time, 80.3 real, 10795.3 MB
+[runlim] sample:		539.0 time, 90.3 real, 11926.2 MB
+[runlim] sample:		612.6 time, 100.3 real, 13116.9 MB
+[runlim] sample:		685.2 time, 110.3 real, 14126.0 MB
+[runlim] sample:		759.9 time, 120.3 real, 14935.9 MB
+[runlim] sample:		833.1 time, 130.3 real, 15842.0 MB
+[runlim] sample:		905.7 time, 140.3 real, 16856.7 MB
+[runlim] sample:		979.7 time, 150.3 real, 17787.3 MB
+[runlim] sample:		1055.6 time, 160.3 real, 18349.5 MB
+[runlim] sample:		1129.6 time, 170.3 real, 19185.8 MB
+[runlim] sample:		1207.3 time, 180.3 real, 19891.9 MB
+[runlim] sample:		1286.5 time, 190.3 real, 20832.6 MB
+[runlim] sample:		1365.7 time, 200.3 real, 21276.9 MB
+[runlim] sample:		1445.0 time, 210.3 real, 21999.3 MB
+[runlim] sample:		1524.2 time, 220.3 real, 22406.5 MB
+[runlim] sample:		1603.0 time, 230.3 real, 23707.3 MB
+[runlim] sample:		1681.7 time, 240.3 real, 23790.9 MB
+[runlim] sample:		1759.9 time, 250.3 real, 24410.9 MB
+[runlim] sample:		1839.1 time, 260.3 real, 24788.3 MB
+[runlim] sample:		1918.4 time, 270.3 real, 25446.6 MB
+[runlim] sample:		1997.5 time, 280.3 real, 26140.0 MB
+[runlim] sample:		2075.9 time, 290.3 real, 26888.4 MB
+[runlim] sample:		2151.2 time, 300.3 real, 27907.7 MB
+[runlim] sample:		2227.3 time, 310.3 real, 28708.7 MB
+[runlim] sample:		2301.2 time, 320.3 real, 29328.6 MB
+[runlim] end:			Sat May 10 11:28:07 2025
+[runlim] status:		out of memory
+[runlim] result:		3
+[runlim] children:		0
+[runlim] real:			328.02 seconds
+[runlim] time:			2348.86 seconds
+[runlim] space:			30011.4 MB
+[runlim] samples:		3277

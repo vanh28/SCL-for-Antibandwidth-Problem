@@ -1,0 +1,61 @@
+[runlim] version:		1.10
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	1800 seconds
+[runlim] space limit:		30000 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		FE.py
+[runlim] argv[2]:		L-bcspwr03.mtx.rnd
+[runlim] start:			Wed Oct  9 02:50:35 2024
+[runlim] main pid:		16281
+[runlim] log captured:
+39
+39
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_Simplex_PGradient                       4
+CPXPARAM_Read_DataCheck                          1
+CPXPARAM_MIP_Strategy_File                       3
+CPXPARAM_TimeLimit                               1800
+CPXPARAM_WorkMem                                 122880
+Tried aggregator 1 time.
+MIP Presolve eliminated 101 rows and 78 columns.
+MIP Presolve modified 5460 coefficients.
+Reduced MIP has 14377 rows, 13846 columns, and 1122682 nonzeros.
+Reduced MIP has 13846 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 1.30 sec. (1685.00 ticks)
+Probing fixed 152 vars, tightened 0 bounds.
+Probing time = 0.15 sec. (75.50 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve eliminated 0 rows and 152 columns.
+MIP Presolve modified 195 coefficients.
+Reduced MIP has 14372 rows, 13694 columns, and 1105653 nonzeros.
+Reduced MIP has 13694 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 1.11 sec. (1475.61 ticks)
+Probing time = 0.02 sec. (7.12 ticks)
+Clique table members: 22686.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+[runlim] sample:		37.4 time, 10.1 real, 550.7 MB
+
+Root node processing (before b&c):
+  Real time             =   10.58 sec. (10132.55 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   10.58 sec. (10132.55 ticks)
+Trạng thái giải pháp: integer optimal solution
+Giá trị Antibandwidth: 39
+Giá trị Antibandwidth: 39
+Các nhãn: [26, 17, 69, 51, 60, 14, 36, 67, 91, 28, 25, 58, 118, 9, 79, 113, 56, 10, 90, 18, 86, 92, 5, 4, 21, 13, 76, 37, 50, 44, 115, 53, 100, 81, 102, 32, 107, 39, 49, 97, 11, 109, 71, 30, 38, 106, 73, 22, 20, 105, 3, 45, 94, 99, 84, 77, 62, 61, 70, 117, 72, 12, 57, 93, 78, 85, 43, 98, 48, 74, 111, 95, 65, 54, 42, 7, 8, 59, 88, 114, 68, 1, 29, 87, 41, 46, 52, 116, 112, 34, 80, 47, 104, 82, 40, 6, 19, 35, 108, 23, 103, 89, 63, 24, 16, 83, 2, 110, 96, 55, 15, 27, 66, 33, 75, 64, 31, 101]
+Bài toán Antibandwidth
+[runlim] end:			Wed Oct  9 02:50:46 2024
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			11.15 seconds
+[runlim] time:			45.14 seconds
+[runlim] space:			559.0 MB
+[runlim] samples:		110

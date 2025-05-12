@@ -1,0 +1,74 @@
+[runlim] version:		1.10
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		30000 MB
+[runlim] argv[0]:		/home/hvanh28/Minizinc/MiniZincIDE-2.8.6-bundle-linux-x86_64/bin/minizinc
+[runlim] argv[1]:		--solver
+[runlim] argv[2]:		Chuffed
+[runlim] argv[3]:		--time-limit
+[runlim] argv[4]:		1800000
+[runlim] argv[5]:		--output-to-file
+[runlim] argv[6]:		4/J-nos4-1.log
+[runlim] argv[7]:		--output-time
+[runlim] argv[8]:		--statistics
+[runlim] argv[9]:		CP-MZ-Chuffed.mzn
+[runlim] argv[10]:		J-nos4.dzn
+[runlim] start:			Thu Oct 10 03:46:16 2024
+[runlim] main pid:		30405
+[runlim] log captured:
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=595
+%%%mzn-stat: flatIntConstraints=742
+%%%mzn-stat: method="maximize"
+%%%mzn-stat: flatTime=0.130243
+%%%mzn-stat-end
+WARNING: the --time-out flag has recently been changed.The time-out is now provided in milliseconds instead of seconds
+[runlim] sample:		10.0 time, 10.0 real, 88.2 MB
+[runlim] sample:		20.0 time, 20.0 real, 114.9 MB
+[runlim] sample:		30.0 time, 30.0 real, 146.5 MB
+[runlim] sample:		40.0 time, 40.0 real, 150.7 MB
+[runlim] sample:		50.0 time, 50.0 real, 188.9 MB
+[runlim] sample:		60.0 time, 60.0 real, 189.2 MB
+[runlim] sample:		70.0 time, 70.0 real, 195.6 MB
+[runlim] sample:		80.0 time, 80.0 real, 196.0 MB
+[runlim] sample:		90.0 time, 90.0 real, 197.2 MB
+[runlim] sample:		100.0 time, 100.0 real, 197.2 MB
+[runlim] sample:		110.0 time, 110.0 real, 199.2 MB
+[runlim] sample:		120.0 time, 120.0 real, 199.2 MB
+[runlim] sample:		130.0 time, 130.0 real, 199.2 MB
+[runlim] sample:		139.9 time, 140.0 real, 199.2 MB
+[runlim] sample:		149.9 time, 150.0 real, 199.4 MB
+[runlim] sample:		159.9 time, 160.0 real, 199.4 MB
+[runlim] sample:		169.9 time, 170.0 real, 199.4 MB
+[runlim] sample:		179.9 time, 180.0 real, 199.4 MB
+[runlim] sample:		189.9 time, 190.0 real, 199.4 MB
+[runlim] sample:		199.9 time, 200.0 real, 206.8 MB
+[runlim] sample:		209.9 time, 210.0 real, 210.6 MB
+[runlim] sample:		219.9 time, 220.0 real, 221.2 MB
+[runlim] sample:		229.9 time, 230.0 real, 243.9 MB
+[runlim] sample:		239.9 time, 240.0 real, 266.6 MB
+[runlim] sample:		249.9 time, 250.0 real, 287.2 MB
+[runlim] sample:		259.9 time, 260.0 real, 307.3 MB
+[runlim] sample:		269.9 time, 270.0 real, 319.2 MB
+[runlim] sample:		279.9 time, 280.0 real, 319.4 MB
+[runlim] sample:		289.9 time, 290.0 real, 319.4 MB
+[runlim] sample:		299.9 time, 300.0 real, 330.3 MB
+[runlim] sample:		309.9 time, 310.0 real, 343.9 MB
+[runlim] sample:		319.9 time, 320.0 real, 343.9 MB
+[runlim] sample:		329.9 time, 330.0 real, 343.9 MB
+[runlim] sample:		339.9 time, 340.0 real, 343.9 MB
+[runlim] sample:		349.9 time, 350.0 real, 343.9 MB
+[runlim] sample:		359.9 time, 360.0 real, 343.9 MB
+[runlim] sample:		369.9 time, 370.0 real, 343.9 MB
+[runlim] sample:		379.9 time, 380.0 real, 343.9 MB
+%%%mzn-stat: nSolutions=1
+%%%mzn-stat-end
+[runlim] end:			Thu Oct 10 03:52:40 2024
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		3842
+[runlim] real:			384.41 seconds
+[runlim] time:			384.23 seconds
+[runlim] space:			343.9 MB
+[runlim] samples:		3843

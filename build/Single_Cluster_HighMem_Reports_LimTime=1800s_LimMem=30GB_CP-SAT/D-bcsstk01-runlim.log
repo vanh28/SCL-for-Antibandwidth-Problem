@@ -1,0 +1,17 @@
+[runlim] version:		1.10
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		30000 MB
+[runlim] argv[0]:		python3
+[runlim] argv[1]:		cp-sat.py
+[runlim] argv[2]:		D-bcsstk01.mtx.rnd
+[runlim] start:			Sat May 10 06:16:43 2025
+[runlim] main pid:		529111
+[runlim] end:			Sat May 10 06:16:44 2025
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			1.72 seconds
+[runlim] time:			5.79 seconds
+[runlim] space:			158.4 MB
+[runlim] samples:		12

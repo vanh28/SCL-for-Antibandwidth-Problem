@@ -1,0 +1,138 @@
+[runlim] version:		1.10
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	1800 seconds
+[runlim] space limit:		30000 MB
+[runlim] argv[0]:		oplrun
+[runlim] argv[1]:		-l
+[runlim] argv[2]:		3/L-bcspwr03-ver1.out
+[runlim] argv[3]:		CP-CPLEX.mod
+[runlim] argv[4]:		L-bcspwr03.dat
+[runlim] start:			Tue Oct  8 12:20:40 2024
+[runlim] main pid:		3578
+[runlim] log captured:
+
+<<< setup
+
+
+<<< generate
+
+ ! --------------------------------------------------- CP Optimizer 22.1.1.0 --
+ ! Maximization problem - 119 variables, 183 constraints
+ ! TimeLimit            = 1800
+ ! Initial process time : 0.01s (0.01s extraction + 0.00s propagation)
+ !  . Log search space  : 811.2 (before), 811.2 (after)
+ !  . Memory usage      : 447.5 kB (before), 447.5 kB (after)
+ ! Using parallel search with 8 workers.
+ ! ----------------------------------------------------------------------------
+ !          Best Branches  Non-fixed    W       Branch decision
+                        0        119                 -
+ + New bound is 39
+                     1000         33    1        84 != labels#14
+                     1000         34    2   F   118  = labels#108
+                     1000         22    3        59  = labels#55
+                     1000         51    4   F    14  = labels#97
+                     1000         26    5   F    32  = labels#5
+                     1000         29    6   F    79 != labels#13
+                     1000         32    7       113  = labels#99
+                     1000         26    8        51 != labels#34
+                     2000         35    1        71 != labels#110
+                     2000         32    3        69  = labels#63
+                     2000         25    6        96 != labels#14
+                     2000         17    7   F    77 != labels#42
+                     2000         17    8   F   113  = labels#58
+                     2000         38    2        49 != labels#12
+                     2000         31    4        90 != labels#94
+                     2000         18    5   F    27  = labels#25
+                     3000         15    6        61  = labels#58
+                     3000         32    3        99 != labels#48
+                     3000         35    4   F    49  = labels#54
+ ! Time = 0.06s, Average fail depth = 27, Memory usage = 8.3 MB
+ ! Current bound is 39
+ !          Best Branches  Non-fixed    W       Branch decision
+                     3000         20    5   F    69  = labels#49
+                     4000         22    6         2 != labels#100
+                     4000         96    3   F    83  = labels#94
+                     4000         50    4        51 != labels#81
+                     3000          8    7   F    78  = labels#98
+                     3000         31    2        62 != labels#110
+                     5000         78    3        38  = labels#56
+                     4000         35    5   F    69  = labels#81
+                     5000         29    6   F    91  = labels#94
+                     4000         16    7   F   115 != labels#83
+                     3000         20    8   F    85  = labels#13
+                     3000         49    1        37 != labels#104
+                     4000          3    2   F   116 != labels#37
+                     6000         79    3            -
+                     5000         23    5        65 != labels#94
+                     6000         77    6        81  = labels#108
+                     4000         96    8   F    45  = labels#73
+                     4000         43    1   F    61  = labels#102
+                     5000         71    4   F     8  = labels#110
+                     5000         16    7   F     3  = labels#21
+ ! Time = 0.10s, Average fail depth = 25, Memory usage = 10.1 MB
+ ! Current bound is 39
+ !          Best Branches  Non-fixed    W       Branch decision
+                     5000         32    8   F     8  = labels#70
+                     5000         44    1   F    39  = labels#34
+                     7000         77    3   F    80  = labels#14
+                     6000         93    5        47 != labels#94
+                     7000         77    6   F    97  = labels#14
+                     5000          3    2        92 != labels#81
+                     6000         26    4        87 != labels#77
+                     6000         18    7        13  = labels#53
+                     6000         25    8        84 != labels#93
+                     7000         32    4   F   108  = labels#94
+                     7000         37    5   F    59  = labels#14
+                     8000        102    6   F    28  = labels#77
+                     7000         26    7        43  = labels#39
+                     6000          8    2        84  = labels#110
+                     8000         63    3   F    19  = labels#61
+                     8000         34    4        48 != labels#94
+                     8000         49    5   F    99  = labels#84
+                     7000         37    8   F    64  = labels#34
+                     6000         36    1        87 != labels#12
+ *            39     7075  0.13s        7      (gap is 0.00%)
+ ! Time = 0.13s, Average fail depth = 24, Memory usage = 10.0 MB
+ ! Current bound is 39 (gap is 0.00%)
+ !          Best Branches  Non-fixed    W       Branch decision
+ ! ----------------------------------------------------------------------------
+ ! Search completed, 1 solution found.
+ ! Best objective         : 39 (optimal - effective tol. is 0)
+ ! Best bound             : 39
+ ! ----------------------------------------------------------------------------
+ ! Number of branches     : 61831
+ ! Number of fails        : 27945
+ ! Total memory usage     : 13.9 MB (13.6 MB CP Optimizer + 0.4 MB Concert)
+ ! Time spent in solve    : 0.13s (0.13s engine + 0.01s extraction)
+ ! Search speed (br. / s) : 515258.3
+ ! ----------------------------------------------------------------------------
+
+<<< solve
+
+
+OBJECTIVE: 39
+Objective value (b): 39
+Labels:  [117 27 67 17 103 41 91 73 102 33 36 43 79 104 1 115 78 106 113 10 48 109 5
+     30 8 60 76 19 45 35 74 70 4 110 47 85 114 63 20 80 37 111 71 34 83 100
+     116 87 92 13 57 93 18 6 77 44 96 95 16 84 89 58 50 65 11 99 9 97 52 42
+     7 94 62 98 90 68 59 2 25 49 75 118 32 101 38 107 54 23 39 22 105 29 51
+     81 40 56 61 31 14 69 82 46 53 12 3 72 112 64 26 21 86 28 88 24 108 66
+     55 15]
+Vertex with maximum degree: 105
+
+<<< post process
+
+
+<<< done
+
+
+<<< engine log: 3/L-bcspwr03-ver1.out
+
+[runlim] end:			Tue Oct  8 12:20:40 2024
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			0.25 seconds
+[runlim] time:			0.54 seconds
+[runlim] space:			48.2 MB
+[runlim] samples:		1

@@ -1,0 +1,292 @@
+[runlim] version:		1.10
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	1800 seconds
+[runlim] space limit:		30000 MB
+[runlim] argv[0]:		python
+[runlim] argv[1]:		FE.py
+[runlim] argv[2]:		J-nos4.mtx.rnd
+[runlim] start:			Wed Oct  9 01:50:35 2024
+[runlim] main pid:		15375
+[runlim] log captured:
+40
+32
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_Simplex_PGradient                       4
+CPXPARAM_Read_DataCheck                          1
+CPXPARAM_MIP_Strategy_File                       3
+CPXPARAM_TimeLimit                               1800
+CPXPARAM_WorkMem                                 122880
+Tried aggregator 1 time.
+MIP Presolve eliminated 69 rows and 64 columns.
+MIP Presolve modified 3247 coefficients.
+Reduced MIP has 17129 rows, 9936 columns, and 1098210 nonzeros.
+Reduced MIP has 9936 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 1.12 sec. (1477.57 ticks)
+Probing fixed 1 vars, tightened 0 bounds.
+Probing time = 0.05 sec. (19.55 ticks)
+Cover probing fixed 69 vars, tightened 0 bounds.
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve eliminated 0 rows and 70 columns.
+MIP Presolve modified 686 coefficients.
+Reduced MIP has 17115 rows, 9866 columns, and 1088459 nonzeros.
+Reduced MIP has 9866 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 1.09 sec. (1455.21 ticks)
+Probing time = 0.02 sec. (5.75 ticks)
+Clique table members: 17667.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+[runlim] sample:		42.2 time, 10.1 real, 677.6 MB
+[runlim] sample:		116.0 time, 20.1 real, 581.8 MB
+Root relaxation solution time = 20.85 sec. (15293.32 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0        0.0000   490                      0.0000       11         
+[runlim] sample:		151.1 time, 30.1 real, 690.0 MB
+[runlim] sample:		181.2 time, 40.1 real, 690.0 MB
+[runlim] sample:		211.1 time, 50.1 real, 690.0 MB
+[runlim] sample:		241.1 time, 60.1 real, 693.9 MB
+[runlim] sample:		271.1 time, 70.1 real, 693.9 MB
+[runlim] sample:		301.1 time, 80.1 real, 693.9 MB
+[runlim] sample:		331.1 time, 90.1 real, 696.2 MB
+[runlim] sample:		361.1 time, 100.1 real, 696.2 MB
+[runlim] sample:		391.1 time, 110.1 real, 696.2 MB
+[runlim] sample:		421.1 time, 120.1 real, 696.2 MB
+[runlim] sample:		451.1 time, 130.1 real, 696.2 MB
+[runlim] sample:		481.1 time, 140.1 real, 696.2 MB
+[runlim] sample:		511.1 time, 150.1 real, 696.2 MB
+[runlim] sample:		541.1 time, 160.1 real, 696.2 MB
+[runlim] sample:		571.1 time, 170.1 real, 696.2 MB
+[runlim] sample:		601.1 time, 180.1 real, 696.2 MB
+[runlim] sample:		631.1 time, 190.1 real, 696.2 MB
+      0     0        0.0000   266                   Cuts: 142    54115         
+[runlim] sample:		661.1 time, 200.1 real, 724.0 MB
+[runlim] sample:		691.1 time, 210.1 real, 724.0 MB
+[runlim] sample:		721.1 time, 220.1 real, 724.0 MB
+[runlim] sample:		751.1 time, 230.1 real, 724.0 MB
+[runlim] sample:		781.1 time, 240.1 real, 727.0 MB
+[runlim] sample:		811.1 time, 250.1 real, 728.9 MB
+[runlim] sample:		841.1 time, 260.1 real, 728.9 MB
+[runlim] sample:		871.1 time, 270.1 real, 678.7 MB
+[runlim] sample:		901.1 time, 280.1 real, 686.7 MB
+[runlim] sample:		931.1 time, 290.1 real, 689.8 MB
+[runlim] sample:		961.1 time, 300.1 real, 690.0 MB
+[runlim] sample:		991.1 time, 310.1 real, 690.0 MB
+[runlim] sample:		1021.1 time, 320.1 real, 690.0 MB
+[runlim] sample:		1051.1 time, 330.1 real, 690.0 MB
+[runlim] sample:		1081.1 time, 340.1 real, 690.0 MB
+[runlim] sample:		1111.1 time, 350.1 real, 690.0 MB
+[runlim] sample:		1141.1 time, 360.1 real, 690.2 MB
+[runlim] sample:		1171.1 time, 370.1 real, 690.2 MB
+[runlim] sample:		1201.1 time, 380.1 real, 692.3 MB
+[runlim] sample:		1231.1 time, 390.1 real, 693.4 MB
+[runlim] sample:		1261.1 time, 400.1 real, 693.4 MB
+      0     0        0.0000   371                   Cuts: 514   113479         
+[runlim] sample:		1291.1 time, 410.1 real, 693.7 MB
+[runlim] sample:		1321.1 time, 420.1 real, 735.1 MB
+[runlim] sample:		1351.1 time, 430.1 real, 735.1 MB
+[runlim] sample:		1381.1 time, 440.1 real, 735.1 MB
+[runlim] sample:		1411.1 time, 450.1 real, 735.1 MB
+[runlim] sample:		1441.1 time, 460.1 real, 735.1 MB
+[runlim] sample:		1471.1 time, 470.1 real, 742.0 MB
+[runlim] sample:		1501.1 time, 480.1 real, 742.0 MB
+[runlim] sample:		1531.1 time, 490.1 real, 742.0 MB
+[runlim] sample:		1561.1 time, 500.1 real, 742.5 MB
+[runlim] sample:		1591.1 time, 510.1 real, 743.3 MB
+[runlim] sample:		1621.1 time, 520.1 real, 744.8 MB
+[runlim] sample:		1651.1 time, 530.1 real, 744.8 MB
+[runlim] sample:		1681.1 time, 540.1 real, 745.3 MB
+[runlim] sample:		1711.1 time, 550.1 real, 745.9 MB
+[runlim] sample:		1741.1 time, 560.1 real, 748.3 MB
+[runlim] sample:		1771.1 time, 570.1 real, 749.1 MB
+[runlim] sample:		1801.1 time, 580.1 real, 751.0 MB
+[runlim] sample:		1831.1 time, 590.1 real, 751.0 MB
+[runlim] sample:		1861.1 time, 600.1 real, 752.2 MB
+[runlim] sample:		1891.1 time, 610.1 real, 752.9 MB
+[runlim] sample:		1921.1 time, 620.1 real, 752.9 MB
+[runlim] sample:		1951.1 time, 630.1 real, 752.9 MB
+[runlim] sample:		1981.1 time, 640.1 real, 752.9 MB
+[runlim] sample:		2011.1 time, 650.1 real, 752.9 MB
+[runlim] sample:		2041.1 time, 660.1 real, 752.9 MB
+      0     0        0.0000   460                   Cuts: 242   186551         
+[runlim] sample:		2071.1 time, 670.1 real, 753.0 MB
+[runlim] sample:		2101.1 time, 680.1 real, 753.0 MB
+[runlim] sample:		2131.1 time, 690.1 real, 753.0 MB
+[runlim] sample:		2161.1 time, 700.1 real, 753.0 MB
+[runlim] sample:		2191.1 time, 710.1 real, 753.0 MB
+[runlim] sample:		2221.1 time, 720.1 real, 753.0 MB
+[runlim] sample:		2251.1 time, 730.1 real, 754.9 MB
+[runlim] sample:		2281.1 time, 740.1 real, 754.9 MB
+[runlim] sample:		2311.1 time, 750.1 real, 754.9 MB
+[runlim] sample:		2341.1 time, 760.1 real, 755.4 MB
+[runlim] sample:		2371.1 time, 770.1 real, 755.4 MB
+[runlim] sample:		2401.1 time, 780.1 real, 755.4 MB
+[runlim] sample:		2431.1 time, 790.1 real, 755.4 MB
+[runlim] sample:		2461.1 time, 800.1 real, 755.4 MB
+[runlim] sample:		2491.1 time, 810.1 real, 755.4 MB
+[runlim] sample:		2521.1 time, 820.1 real, 755.4 MB
+[runlim] sample:		2551.1 time, 830.1 real, 755.4 MB
+[runlim] sample:		2581.1 time, 840.1 real, 755.4 MB
+[runlim] sample:		2611.1 time, 850.1 real, 755.4 MB
+[runlim] sample:		2641.1 time, 860.1 real, 755.4 MB
+[runlim] sample:		2671.1 time, 870.1 real, 755.4 MB
+[runlim] sample:		2701.1 time, 880.1 real, 755.4 MB
+[runlim] sample:		2731.1 time, 890.1 real, 755.4 MB
+[runlim] sample:		2761.1 time, 900.1 real, 755.4 MB
+[runlim] sample:		2791.1 time, 910.1 real, 755.4 MB
+[runlim] sample:		2821.1 time, 920.1 real, 755.4 MB
+[runlim] sample:		2851.1 time, 930.1 real, 755.4 MB
+[runlim] sample:		2881.1 time, 940.1 real, 755.4 MB
+[runlim] sample:		2911.1 time, 950.1 real, 755.4 MB
+Heuristic still looking.
+[runlim] sample:		2941.1 time, 960.1 real, 755.4 MB
+[runlim] sample:		2971.1 time, 970.1 real, 755.4 MB
+[runlim] sample:		3001.0 time, 980.1 real, 755.4 MB
+[runlim] sample:		3031.1 time, 990.1 real, 755.4 MB
+Heuristic still looking.
+[runlim] sample:		3061.1 time, 1000.1 real, 755.4 MB
+[runlim] sample:		3091.0 time, 1010.1 real, 755.4 MB
+[runlim] sample:		3121.1 time, 1020.1 real, 755.4 MB
+[runlim] sample:		3151.0 time, 1030.1 real, 755.4 MB
+[runlim] sample:		3181.0 time, 1040.1 real, 755.4 MB
+Heuristic still looking.
+[runlim] sample:		3211.1 time, 1050.1 real, 755.4 MB
+[runlim] sample:		3241.0 time, 1060.1 real, 755.4 MB
+[runlim] sample:		3271.0 time, 1070.1 real, 755.4 MB
+[runlim] sample:		3301.0 time, 1080.1 real, 755.4 MB
+[runlim] sample:		3331.0 time, 1090.1 real, 755.4 MB
+[runlim] sample:		3361.0 time, 1100.1 real, 755.4 MB
+Detecting symmetries...
+      0     2        0.0000   235                      0.0000   186551         
+Elapsed time = 1108.86 sec. (1051022.75 ticks, tree = 0.02 MB, solutions = 0)
+[runlim] sample:		3389.4 time, 1110.1 real, 774.7 MB
+[runlim] sample:		3409.4 time, 1120.1 real, 775.2 MB
+[runlim] sample:		3429.4 time, 1130.1 real, 775.2 MB
+[runlim] sample:		3449.4 time, 1140.1 real, 775.2 MB
+[runlim] sample:		3469.4 time, 1150.1 real, 775.2 MB
+[runlim] sample:		3489.4 time, 1160.1 real, 775.2 MB
+[runlim] sample:		3509.4 time, 1170.1 real, 775.2 MB
+[runlim] sample:		3529.4 time, 1180.1 real, 775.2 MB
+[runlim] sample:		3549.4 time, 1190.1 real, 775.2 MB
+[runlim] sample:		3569.4 time, 1200.1 real, 775.2 MB
+[runlim] sample:		3589.4 time, 1210.1 real, 775.2 MB
+[runlim] sample:		3609.4 time, 1220.1 real, 775.2 MB
+[runlim] sample:		3629.4 time, 1230.1 real, 775.2 MB
+[runlim] sample:		3649.4 time, 1240.1 real, 775.2 MB
+[runlim] sample:		3669.4 time, 1250.1 real, 775.2 MB
+[runlim] sample:		3689.4 time, 1260.1 real, 775.2 MB
+[runlim] sample:		3716.4 time, 1270.1 real, 775.2 MB
+[runlim] sample:		3746.4 time, 1280.1 real, 779.2 MB
+[runlim] sample:		3776.3 time, 1290.1 real, 779.2 MB
+[runlim] sample:		3806.4 time, 1300.1 real, 779.2 MB
+[runlim] sample:		3836.4 time, 1310.1 real, 779.2 MB
+[runlim] sample:		3866.4 time, 1320.1 real, 779.2 MB
+[runlim] sample:		3896.4 time, 1330.1 real, 779.2 MB
+[runlim] sample:		3926.3 time, 1340.1 real, 779.2 MB
+[runlim] sample:		3956.3 time, 1350.1 real, 779.2 MB
+      1     3        0.0000   312                      0.0000   275163         
+[runlim] sample:		3989.5 time, 1360.1 real, 786.8 MB
+[runlim] sample:		4029.5 time, 1370.1 real, 807.2 MB
+[runlim] sample:		4069.5 time, 1380.1 real, 807.2 MB
+[runlim] sample:		4109.5 time, 1390.1 real, 807.2 MB
+[runlim] sample:		4149.5 time, 1400.1 real, 807.2 MB
+[runlim] sample:		4189.5 time, 1410.1 real, 807.2 MB
+      2     4        0.0000   264                      0.0000   321129         
+[runlim] sample:		4234.8 time, 1420.1 real, 857.2 MB
+[runlim] sample:		4284.8 time, 1430.1 real, 858.5 MB
+[runlim] sample:		4334.8 time, 1440.1 real, 858.7 MB
+      3     5        0.0000   289                      0.0000   353441         
+[runlim] sample:		4384.8 time, 1450.1 real, 858.7 MB
+[runlim] sample:		4434.8 time, 1460.1 real, 855.7 MB
+[runlim] sample:		4487.8 time, 1470.1 real, 889.0 MB
+      4     6        0.0000   248                      0.0000   373192         
+[runlim] sample:		4547.8 time, 1480.1 real, 905.8 MB
+[runlim] sample:		4607.8 time, 1490.1 real, 906.1 MB
+[runlim] sample:		4661.0 time, 1500.1 real, 905.3 MB
+[runlim] sample:		4711.0 time, 1510.1 real, 905.5 MB
+[runlim] sample:		4762.7 time, 1520.1 real, 892.6 MB
+[runlim] sample:		4822.7 time, 1530.1 real, 894.5 MB
+      5     7        0.0000   220                      0.0000   406204         
+      6     3        0.0000   270                      0.0000   281058         
+[runlim] sample:		4875.7 time, 1540.1 real, 904.6 MB
+      7     5        0.0000   259                      0.0000   364237         
+[runlim] sample:		4938.1 time, 1550.1 real, 907.3 MB
+      8     8        0.0000   345                      0.0000   431721         
+      9     4        0.0000   287                      0.0000   327821         
+[runlim] sample:		5013.8 time, 1560.1 real, 913.9 MB
+[runlim] sample:		5093.3 time, 1570.1 real, 927.0 MB
+     10     9    infeasible                            0.0000   595662         
+Elapsed time = 1572.87 sec. (1378593.96 ticks, tree = 0.02 MB, solutions = 0)
+[runlim] sample:		5172.9 time, 1580.1 real, 927.0 MB
+     12    10        0.0000   314                      0.0000   574846         
+[runlim] sample:		5237.2 time, 1590.1 real, 917.0 MB
+     13     6        0.0000   188                      0.0000   354284         
+[runlim] sample:		5286.3 time, 1600.1 real, 899.5 MB
+     14    12        0.0000   311                      0.0000   648721         
+     15    14        0.0000   297                      0.0000   714552         
+     16    13        0.0000   243                      0.0000   704839         
+     17     8        0.0000   332                      0.0000   412131         
+[runlim] sample:		5343.0 time, 1610.1 real, 901.5 MB
+     19    10        0.0000   361                      0.0000   611227         
+[runlim] sample:		5418.7 time, 1620.1 real, 901.5 MB
+     20    15        0.0000   297                      0.0000   739202         
+     21    16        0.0000   264                      0.0000   741798         
+[runlim] sample:		5498.2 time, 1630.1 real, 901.5 MB
+     22     7        0.0000   384                      0.0000   377278         
+Elapsed time = 1631.48 sec. (1410999.04 ticks, tree = 0.02 MB, solutions = 0)
+[runlim] sample:		5577.8 time, 1640.1 real, 901.5 MB
+     23    18        0.0000   331                      0.0000   805945         
+[runlim] sample:		5657.4 time, 1650.1 real, 901.5 MB
+[runlim] sample:		5736.9 time, 1660.1 real, 909.5 MB
+[runlim] sample:		5816.5 time, 1670.1 real, 909.5 MB
+[runlim] sample:		5896.1 time, 1680.1 real, 909.5 MB
+     25    19        0.0000   495                      0.0000   825454         
+     26    20        0.0000   328                      0.0000   827487         
+[runlim] sample:		5975.7 time, 1690.1 real, 909.5 MB
+     28    17        0.0000   196                      0.0000   792894         
+     29    15        0.0000   307                      0.0000   734806         
+[runlim] sample:		6055.2 time, 1700.1 real, 909.5 MB
+     30    21        0.0000   202                      0.0000   844269         
+     31    16        0.0000   322                      0.0000   747868         
+[runlim] sample:		6134.8 time, 1710.1 real, 909.5 MB
+     33    19        0.0000   411                      0.0000   871269         
+     35    19        0.0000   218                      0.0000   806512         
+     37    19        0.0000   305                      0.0000   813754         
+Elapsed time = 1719.48 sec. (1451164.01 ticks, tree = 0.59 MB, solutions = 0)
+[runlim] sample:		6214.3 time, 1720.1 real, 909.5 MB
+[runlim] sample:		6270.8 time, 1730.1 real, 909.5 MB
+     39    18        0.0000   327                      0.0000   836078         
+     41    23        0.0000   267                      0.0000   876715         
+[runlim] sample:		6298.8 time, 1740.1 real, 909.5 MB
+     42    19        0.0000   297                      0.0000   855485         
+     43    18        0.0000   394                      0.0000   776673         
+     45    19        0.0000   300                      0.0000   779243         
+     47    17        0.0000   289                      0.0000   849073         
+[runlim] sample:		6321.6 time, 1750.1 real, 893.7 MB
+[runlim] sample:		6383.9 time, 1760.1 real, 894.4 MB
+[runlim] sample:		6463.5 time, 1770.1 real, 894.4 MB
+     48    21        0.0000   352                      0.0000   916162         
+     49    23        0.0000   320                      0.0000   912693         
+     51    22        0.0000   355                      0.0000   920871         
+     52    20        0.0000   188                      0.0000   853529         
+Elapsed time = 1772.87 sec. (1482842.10 ticks, tree = 0.19 MB, solutions = 0)
+     54    20        0.0000   233                      0.0000   887459         
+     55    32        0.0000   278                      0.0000  1190322         
+[runlim] sample:		6543.0 time, 1780.1 real, 894.4 MB
+     56    41        0.0000   206                      0.0000  1428989         
+[runlim] sample:		6622.6 time, 1790.1 real, 894.4 MB
+     59    24        0.0000   295                      0.0000  1035550         
+     60    47        0.0000   295                      0.0000  1540188         
+     63    47        0.0000   294                      0.0000  1541106         
+[runlim] sample:		6702.2 time, 1800.1 real, 894.4 MB
+[runlim] end:			Wed Oct  9 02:20:35 2024
+[runlim] status:		out of time
+[runlim] result:		2
+[runlim] children:		0
+[runlim] real:			1800.07 seconds
+[runlim] time:			6702.16 seconds
+[runlim] space:			927.0 MB
+[runlim] samples:		18000

@@ -1,0 +1,17 @@
+[runlim] version:		1.10
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		30000 MB
+[runlim] argv[0]:		python3
+[runlim] argv[1]:		cp-sat.py
+[runlim] argv[2]:		G-will57.mtx.rnd
+[runlim] start:			Sat May 10 06:16:49 2025
+[runlim] main pid:		529191
+[runlim] end:			Sat May 10 06:16:51 2025
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			2.16 seconds
+[runlim] time:			7.48 seconds
+[runlim] space:			176.2 MB
+[runlim] samples:		15

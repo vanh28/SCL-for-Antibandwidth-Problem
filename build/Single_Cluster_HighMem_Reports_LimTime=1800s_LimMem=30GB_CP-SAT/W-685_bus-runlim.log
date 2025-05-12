@@ -1,0 +1,24 @@
+[runlim] version:		1.10
+[runlim] time limit:		311040000 seconds
+[runlim] real time limit:	311040000 seconds
+[runlim] space limit:		30000 MB
+[runlim] argv[0]:		python3
+[runlim] argv[1]:		cp-sat.py
+[runlim] argv[2]:		W-685_bus.mtx.rnd
+[runlim] start:			Sat May 10 11:49:07 2025
+[runlim] main pid:		555727
+[runlim] sample:		10.8 time, 10.5 real, 869.8 MB
+[runlim] sample:		20.8 time, 20.5 real, 1140.2 MB
+[runlim] sample:		35.6 time, 30.5 real, 2405.8 MB
+[runlim] sample:		105.5 time, 40.5 real, 7259.6 MB
+[runlim] sample:		184.7 time, 50.5 real, 7855.1 MB
+[runlim] sample:		264.0 time, 60.5 real, 8028.1 MB
+[runlim] sample:		343.2 time, 70.5 real, 8209.4 MB
+[runlim] end:			Sat May 10 11:50:20 2025
+[runlim] status:		ok
+[runlim] result:		0
+[runlim] children:		0
+[runlim] real:			73.37 seconds
+[runlim] time:			355.26 seconds
+[runlim] space:			8223.7 MB
+[runlim] samples:		728
