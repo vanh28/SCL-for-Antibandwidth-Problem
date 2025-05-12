@@ -312,6 +312,11 @@ namespace SATABP
             enc = new LadderEncoder(g, cc, vh);
             enc->symmetry_break_point = symmetry_break_point;
             break;
+        case ladder_split:
+            std::cout << "c Initializing a Ladder Split encoder with n = " << g->n << "." << std::endl;
+            enc = new LadderSplitEncoder(g, cc, vh);
+            enc->symmetry_break_point = symmetry_break_point;
+            break;
         default:
             std::cerr << "c Unrecognized encoder type " << enc_choice << "." << std::endl;
             return;

@@ -12,6 +12,7 @@
 #include "product_encoder.h"
 #include "duplex_encoder.h"
 #include "ladder_encoder.h"
+#include "ladder_split_encoder.h"
 
 #include "clause_cont.h"
 #include "cadical_clauses.h"
@@ -26,6 +27,7 @@ namespace SATABP
     seq,
     product,
     ladder,
+    ladder_split
   };
   enum EncoderStrategy
   {

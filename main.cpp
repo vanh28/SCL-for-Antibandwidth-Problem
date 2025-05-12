@@ -43,6 +43,7 @@ static const std::map<std::string, std::string> option_list = {
     {"--product", "Use 2-Product encoding for staircase constraints [default: false]"},
     {"--duplex", "Use duplex encoding for staircase constraints [default: true]"},
     {"--ladder", "Use ladder encoding for staircase constraints and NSC for At-Most-One constraints [default: false]"},
+    {"--ladder-split", "Use ladder split encoding"},
     {"--conf-sat", "Use --sat configuration of CaDiCaL [default: true]"},
     {"--conf-unsat", "Use --unsat configuration of CaDiCaL [default: false]"},
     {"--conf-def", "Use default configuration of CaDiCaL [default: false]"},
@@ -153,6 +154,10 @@ int main(int argc, char **argv)
         else if (argv[i] == std::string("--ladder"))
         {
             abw_enc->enc_choice = EncoderType::ladder;
+        } 
+        else if (argv[i] == std::string("--ladder-split"))
+        {
+            abw_enc->enc_choice = EncoderType::ladder_split;
         }
         else if (argv[i] == std::string("--conf-sat"))
         {

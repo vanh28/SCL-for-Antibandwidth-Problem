@@ -1,5 +1,5 @@
 OBJDIR=build
-OBJECTS= utils.o math_extension.o reduced_encoder.o sequential_encoder.o product_encoder.o duplex_encoder.o ladder_encoder.o encoder.o bdd.o clause_cont.o cadical_clauses.o antibandwidth_encoder.o
+OBJECTS= utils.o math_extension.o reduced_encoder.o sequential_encoder.o product_encoder.o duplex_encoder.o ladder_encoder.o ladder_split_encoder.o encoder.o bdd.o clause_cont.o cadical_clauses.o antibandwidth_encoder.o
 OBJS = $(patsubst %.o,$(OBJDIR)/%.o,$(OBJECTS))
 
 SRCDIR=src
@@ -18,7 +18,7 @@ all : $(OBJDIR)/main.o
 $(OBJDIR)/main.o : main.cpp $(OBJS) $(SRCDIR)/antibandwidth_encoder.h
 	g++ $(FLAGS) $(STANDARD) -I$(CADICAL_INC) -c $< -o $@
 
-$(OBJDIR)/antibandwidth_encoder.o : $(SRCDIR)/antibandwidth_encoder.cpp $(SRCDIR)/antibandwidth_encoder.h $(SRCDIR)/reduced_encoder.h $(SRCDIR)/sequential_encoder.h $(SRCDIR)/product_encoder.h $(SRCDIR)/duplex_encoder.h $(SRCDIR)/ladder_encoder.h $(SRCDIR)/utils.h $(SRCDIR)/math_extension.h $(SRCDIR)/clause_cont.h $(SRCDIR)/cadical_clauses.h
+$(OBJDIR)/antibandwidth_encoder.o : $(SRCDIR)/antibandwidth_encoder.cpp $(SRCDIR)/antibandwidth_encoder.h $(SRCDIR)/reduced_encoder.h $(SRCDIR)/sequential_encoder.h $(SRCDIR)/product_encoder.h $(SRCDIR)/duplex_encoder.h $(SRCDIR)/ladder_encoder.h $(SRCDIR)/ladder_split_encoder.h $(SRCDIR)/utils.h $(SRCDIR)/math_extension.h $(SRCDIR)/clause_cont.h $(SRCDIR)/cadical_clauses.h
 	g++ $(FLAGS) $(STANDARD) -I$(CADICAL_INC) -c $< -o $@
 
 $(OBJDIR)/reduced_encoder.o : $(SRCDIR)/reduced_encoder.cpp $(SRCDIR)/reduced_encoder.h $(SRCDIR)/encoder.h
@@ -34,6 +34,9 @@ $(OBJDIR)/duplex_encoder.o : $(SRCDIR)/duplex_encoder.cpp $(SRCDIR)/duplex_encod
 	g++ $(FLAGS) $(IGNORE_ASSERTVARS) $(STANDARD) -c $< -o $@
 	
 $(OBJDIR)/ladder_encoder.o : $(SRCDIR)/ladder_encoder.cpp $(SRCDIR)/ladder_encoder.h $(SRCDIR)/encoder.h $(SRCDIR)/math_extension.h 
+	g++ $(FLAGS) $(STANDARD) -c $< -o $@
+
+$(OBJDIR)/ladder_split_encoder.o : $(SRCDIR)/ladder_split_encoder.cpp $(SRCDIR)/ladder_split_encoder.h $(SRCDIR)/encoder.h $(SRCDIR)/math_extension.h 
 	g++ $(FLAGS) $(STANDARD) -c $< -o $@
 
 $(OBJDIR)/cadical_clauses.o : $(SRCDIR)/cadical_clauses.cpp $(SRCDIR)/cadical_clauses.h $(SRCDIR)/clause_cont.h

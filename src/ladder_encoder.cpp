@@ -7,7 +7,11 @@
 #include <assert.h>
 #include <cmath>
 
-
+/*
+    Find more details about New Sequential Counter Encoding in
+    document named "New Sequential Counter Encoding for Cardinality
+    Constraints" - PhD To Van Khanh et al.
+*/
 namespace SATABP
 {
     LadderEncoder::LadderEncoder(Graph *g, ClauseContainer *cc, VarHandler *vh) : Encoder(g, cc, vh)
