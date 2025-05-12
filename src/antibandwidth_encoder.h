@@ -4,97 +4,112 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <limits>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <signal.h>
+#include <chrono>
+#include <fstream>
 
-#include "utils.h"
-
-#include "reduced_encoder.h"
-#include "sequential_encoder.h"
-#include "product_encoder.h"
-#include "duplex_encoder.h"
-#include "ladder_encoder.h"
-
-#include "clause_cont.h"
-#include "cadical_clauses.h"
+#include "encoder.h"
 
 namespace SATABP
 {
 
-  enum EncoderType
-  {
-    duplex,
-    reduced,
-    seq,
-    product,
-    ladder,
-  };
-  enum EncoderStrategy
-  {
-    from_lb,
-    from_ub,
-    bin_search,
-  };
+	enum EncoderStrategy
+	{
+		duplex,
+		reduced,
+		seq,
+		product,
+		ladder,
+	};
 
-  class AntibandwidthEncoder
-  {
-  public:
-    AntibandwidthEncoder();
-    virtual ~AntibandwidthEncoder();
+	enum IterativeStrategy
+	{
+		from_lb,
+		from_ub,
+		bin_search,
+	};
 
-    EncoderType enc_choice = duplex;
-    EncoderStrategy enc_strategy = from_lb;
+	class AntibandwidthEncoder
+	{
+	public:
+		AntibandwidthEncoder();
+		virtual ~AntibandwidthEncoder();
 
-    bool verbose = true;
-    bool check_solution = true;
+		Graph *graph;
+		int process_count = 1;
 
-    bool force_phase = false;
-    std::string sat_configuration = "sat";
+		int max_width_SAT = std::numeric_limits<int>::min();
+		int min_width_UNSAT = std::numeric_limits<int>::max();
 
-    int split_limit = 0;
-    std::string symmetry_break_point = "n";
-    int w_cap = 500;
+		EncoderStrategy enc_choice = duplex;
+		IterativeStrategy iterative_strategy = from_lb;
 
-    bool overwrite_lb = false;
-    bool overwrite_ub = false;
-    int forced_lb = 0;
-    int forced_ub = 0;
+		std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
+		std::chrono::time_point<std::chrono::high_resolution_clock> end_time;
 
-    void read_graph(std::string graph_file_name);
-    void encode_and_solve_abws();
-    void encode_and_print_abw_problem(int w);
+		// Solver configurations
+		bool force_phase = false;
+		bool verbose = true;
+		std::string sat_configuration = "sat";
 
-  protected:
-    Graph *g;
-    VarHandler *vh;
-    Encoder *enc;
-    ClauseContainer *cc;
-    CaDiCaL::Solver *solver;
+		bool enable_solution_verification = true;
+		int split_limit = 0;
+		std::string symmetry_break_strategy = "n";
 
-    int SAT_res = 0;
+		bool overwrite_lb = false;
+		bool overwrite_ub = false;
+		int forced_lb = 0;
+		int forced_ub = 0;
 
-  private:
-    void encode_and_solve_abw_problems_from_lb();
-    void encode_and_solve_abw_problems_from_ub();
-    void encode_and_solve_abw_problems_bin_search();
+		void read_graph(std::string graph_file_name);
+		void encode_and_solve_abws();
+		void encode_and_print_abw_problem(int w);
 
-    void encode_and_solve_abw_problems(int w_from, int w_to, int prev_res, int stop_w);
-    bool encode_and_solve_antibandwidth_problem(int w);
+		void create_limit_pid();
+		void create_abp_pid(int width);
+		int do_abp_pid_task(int width);
 
-    int calculate_sat_solution();
-    bool extract_node_labels(std::vector<int> &node_labels);
+		std::vector<int> get_child_pids(int ppid);		// Get child pids of the given pid
+		std::vector<int> get_descendant_pids(int pids); // Get descendant pids of the given pid, include its child pids
+		size_t get_total_memory_usage(int pid);			// Get memory usage of the given pid and all of its descendant pids
+		size_t get_memory_usage(int pid);				// Get memory usage of the given pid
 
-    void setup_for_solving();
-    void cleanup_solving();
-    void setup_for_print();
-    void cleanup_print();
+		int sample_rate = 100000; // Interval of sampler, in microseconds
+		int report_rate = 100;	  // Interval of report, in number of sampler
+		int sampler_count = 0;
 
-    void setup_cadical();
-    void setup_encoder();
-    void lookup_bounds(int &lb, int &ub);
-    void setup_bounds(int &w_from, int &w_to);
+		float memory_limit = std::numeric_limits<float>::max();		  // bound of total memory consumed by all the processes, in megabyte
+		float real_time_limit = std::numeric_limits<float>::max();	  // bound of time consumed by main process, in seconds
+		float elapsed_time_limit = std::numeric_limits<float>::max(); // bound of total time consumed by all the process, in seconds
 
-    static std::unordered_map<std::string, int> abw_LBs;
-    static std::unordered_map<std::string, int> abw_UBs;
-  };
+		float *max_consumed_memory;
+		float consumed_memory = 0;		 // total memory consumed by all the processes, in megabyte
+		float consumed_real_time = 0;	 // time consumed by main process, in seconds
+		float consumed_elapsed_time = 0; // total time consumed by all the process, in seconds
+
+	private:
+		std::unordered_map<int, pid_t> abp_pids;
+		pid_t lim_pid;
+
+		void encode_and_solve_abw_problems_from_lb();
+		void encode_and_solve_abw_problems_from_ub();
+		void encode_and_solve_abw_problems_bin_search();
+
+		void encode_and_solve_abw_problems(int w_from, int w_to, int stop_w);
+		bool encode_and_solve_antibandwidth_problem(int w);
+
+		void lookup_bounds(int &lb, int &ub);
+		void setup_bounds(int &w_from, int &w_to);
+
+		int is_limit_satified();
+
+		static std::unordered_map<std::string, int> abw_LBs;
+		static std::unordered_map<std::string, int> abw_UBs;
+	};
 
 }
 

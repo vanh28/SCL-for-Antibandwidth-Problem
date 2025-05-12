@@ -1,0 +1,52 @@
+/home/hvanh28/anti-bandwidth-scl-extend/build/abw_enc /home/hvanh28/anti-bandwidth-scl-extend/build/Benchmarks/D-bcsstk01.mtx.rnd --ladder -symmetry-break f -limit-real-time 1800 -limit-memory 30000 -process-count 4
+c LadderEncoder 1.0.
+c Real time limit is set to 1800.
+c Memory limit is set to 30000.
+c Iterative strategy: from LB to UB.
+c LB-w = 8 (LB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c UB-w = 9 (UB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c [w = 8] Start task in PID: 430097.
+c [w = 8] Antibandwidth problem with w = 8 (D-bcsstk01.mtx.rnd):
+c [w = 9] Start task in PID: 430098.
+c [w = 8] Initializing CaDiCaL (version 1.2.1).
+c [w = 8] Configuring CaDiCaL as --sat (1).
+c [w = 9] Antibandwidth problem with w = 9 (D-bcsstk01.mtx.rnd):
+c [w = 8] Initializing a Ladder encoder with n = 48.
+c [w = 8] Encoding starts with w = 8:
+c [w = 9] Initializing CaDiCaL (version 1.2.1).
+c [w = 9] Configuring CaDiCaL as --sat (1).
+c [w = 9] Initializing a Ladder encoder with n = 48.
+c [w = 9] Encoding starts with w = 9:
+c [w = 9] Encoding duration: 0s
+c [w = 9] Number of clauses: 46856
+c [w = 9] Number of irredundant clauses: 46562
+c [w = 9] Number of variables: 6816
+c [w = 9] SAT Solving starts:
+c [w = 8] Encoding duration: 0s
+c [w = 8] Number of clauses: 46456
+c [w = 8] Number of irredundant clauses: 46168
+c [w = 8] Number of variables: 6624
+c [w = 8] SAT Solving starts:
+c [w = 8] Solving duration: 6 ms
+c [w = 8] Answer: 
+s [w = 8] SAT (w = 8)
+c [w = 8] Solution check = 8.
+c [w = 8] Result: 10
+c Max width SAT is set to 8
+c [w = 9] Solving duration: 240 ms
+c [w = 9] Answer: 
+s [w = 9] SAT (w = 9)
+c [w = 9] Solution check = 9.
+c [w = 9] Result: 10
+c Max width SAT is set to 9
+c All children have completed their tasks or were terminated.
+r
+r Final results: 
+r Max width SAT:        9
+r Min width UNSAT:      -
+r Total real time: 257 ms
+r Total memory consumed 13.9 MB
+r
+r
+c Signal interruption.
+Command executed successfully: D-bcsstk01.

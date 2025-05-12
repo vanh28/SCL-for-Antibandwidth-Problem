@@ -1,0 +1,35 @@
+/home/hvanh28/anti-bandwidth-scl-extend/build/abw_enc /home/hvanh28/anti-bandwidth-scl-extend/build/Benchmarks/B-ibm32.mtx.rnd --ladder -symmetry-break h -limit-real-time 1800 -limit-memory 30000 -process-count 8
+c LadderEncoder 1.0.
+c Real time limit is set to 1800.
+c Memory limit is set to 30000.
+c Iterative strategy: from LB to UB.
+c LB-w = 9 (LB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c UB-w = 9 (UB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c [w = 9] Start task in PID: 195666.
+c [w = 9] Antibandwidth problem with w = 9 (B-ibm32.mtx.rnd):
+c [w = 9] Initializing CaDiCaL (version 1.2.1).
+c [w = 9] Configuring CaDiCaL as --sat (1).
+c [w = 9] Initializing a Ladder encoder with n = 32.
+c [w = 9] Encoding starts with w = 9:
+c [w = 9] Encoding duration: 0s
+c [w = 9] Number of clauses: 16774
+c [w = 9] Number of irredundant clauses: 16543
+c [w = 9] Number of variables: 3008
+c [w = 9] SAT Solving starts:
+c [w = 9] Solving duration: 201 ms
+c [w = 9] Answer: 
+s [w = 9] SAT (w = 9)
+c [w = 9] Solution check = 9.
+c [w = 9] Result: 10
+c Max width SAT is set to 9
+c All children have completed their tasks or were terminated.
+r
+r Final results: 
+r Max width SAT:        9
+r Min width UNSAT:      -
+r Total real time: 209 ms
+c Signal interruption.
+r Total memory consumed 11.7 MB
+r
+r
+Command executed successfully: B-ibm32.

@@ -1,0 +1,77 @@
+/home/hvanh28/anti-bandwidth-scl-extend/build/abw_enc /home/hvanh28/anti-bandwidth-scl-extend/build/Benchmarks/U-662_bus.mtx.rnd --ladder -symmetry-break f -limit-real-time 1800 -limit-memory 30000 -process-count 8
+c LadderEncoder 1.0.
+c Real time limit is set to 1800.
+c Memory limit is set to 30000.
+c Iterative strategy: from LB to UB.
+c LB-w = 219 (LB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c UB-w = 220 (UB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c [w = 219] Start task in PID: 70832.
+c [w = 220] Start task in PID: 70833.
+c [w = 219] Antibandwidth problem with w = 219 (U-662_bus.mtx.rnd):
+c [w = 220] Antibandwidth problem with w = 220 (U-662_bus.mtx.rnd):
+c [w = 220] Initializing CaDiCaL (version 1.2.1).
+c [w = 220] Configuring CaDiCaL as --sat (1).
+c [w = 220] Initializing a Ladder encoder with n = 662.
+c [w = 220] Encoding starts with w = 220:
+c [w = 219] Initializing CaDiCaL (version 1.2.1).
+c [w = 219] Configuring CaDiCaL as --sat (1).
+c [w = 219] Initializing a Ladder encoder with n = 662.
+c [w = 219] Encoding starts with w = 219:
+c [w = 219] Encoding duration: 1s
+c [w = 219] Number of clauses: 5479891
+c [w = 219] Number of irredundant clauses: 5477842
+c [w = 219] Number of variables: 1227348
+c [w = 219] SAT Solving starts:
+c [w = 220] Encoding duration: 1s
+c [w = 220] Number of clauses: 5479577
+c [w = 220] Number of irredundant clauses: 5477522
+c [w = 220] Number of variables: 1228672
+c [w = 220] SAT Solving starts:
+c [Lim] Sampler:        Memory: 1887.3 MB       Real time: 10s  Elapsed time: 20s
+c [Lim] Sampler:        Memory: 1963.8 MB       Real time: 20s  Elapsed time: 40.0001s
+c [Lim] Sampler:        Memory: 2293.3 MB       Real time: 30.0001s     Elapsed time: 60.0002s
+c [w = 219] Solving duration: 33645 ms
+c [w = 219] Answer: 
+s [w = 219] SAT (w = 219)
+c [w = 219] Solution check = 219.
+c [w = 219] Result: 10
+c Max width SAT is set to 219
+c [Lim] Sampler:        Memory: 1094.2 MB       Real time: 40s  Elapsed time: 75.8s
+c [Lim] Sampler:        Memory: 1097.3 MB       Real time: 49.9998s     Elapsed time: 85.7998s
+c [Lim] Sampler:        Memory: 1057.8 MB       Real time: 59.9997s     Elapsed time: 95.7997s
+c [Lim] Sampler:        Memory: 1088.6 MB       Real time: 69.9995s     Elapsed time: 105.8s
+c [Lim] Sampler:        Memory: 1008 MB Real time: 79.9994s     Elapsed time: 115.799s
+c [Lim] Sampler:        Memory: 1105.8 MB       Real time: 89.9992s     Elapsed time: 125.799s
+c [Lim] Sampler:        Memory: 1111.2 MB       Real time: 99.999s      Elapsed time: 135.8s
+c [Lim] Sampler:        Memory: 1109.9 MB       Real time: 109.999s     Elapsed time: 145.8s
+c [Lim] Sampler:        Memory: 1083.3 MB       Real time: 119.999s     Elapsed time: 155.801s
+c [Lim] Sampler:        Memory: 1226.2 MB       Real time: 129.999s     Elapsed time: 165.801s
+c [Lim] Sampler:        Memory: 1088.1 MB       Real time: 139.999s     Elapsed time: 175.802s
+c [Lim] Sampler:        Memory: 1069.3 MB       Real time: 150s Elapsed time: 185.803s
+c [Lim] Sampler:        Memory: 1072.7 MB       Real time: 160.001s     Elapsed time: 195.803s
+c [Lim] Sampler:        Memory: 1027 MB Real time: 170.001s     Elapsed time: 205.804s
+c [Lim] Sampler:        Memory: 1096.9 MB       Real time: 180.002s     Elapsed time: 215.805s
+c [Lim] Sampler:        Memory: 1135.9 MB       Real time: 190.002s     Elapsed time: 225.805s
+c [Lim] Sampler:        Memory: 1139.7 MB       Real time: 200.003s     Elapsed time: 235.806s
+c [Lim] Sampler:        Memory: 1315.9 MB       Real time: 210.004s     Elapsed time: 245.806s
+c [Lim] Sampler:        Memory: 1119.5 MB       Real time: 220.004s     Elapsed time: 255.807s
+c [Lim] Sampler:        Memory: 1272.4 MB       Real time: 230.005s     Elapsed time: 265.808s
+c [Lim] Sampler:        Memory: 1059.2 MB       Real time: 240.005s     Elapsed time: 275.808s
+c [Lim] Sampler:        Memory: 1214.7 MB       Real time: 250.006s     Elapsed time: 285.809s
+c [w = 220] Solving duration: 250646 ms
+c [w = 220] Answer: 
+s [w = 220] SAT (w = 220)
+c [w = 220] Solution check = 220.
+c [w = 220] Result: 10
+c Max width SAT is set to 220
+c All children have completed their tasks or were terminated.
+r
+r Final results: 
+r Max width SAT:        220
+r Min width UNSAT:      -
+r Total real time: 252790 ms
+c Signal interruption.
+r Total memory consumed 2327.2 MB
+r
+r
+Command executed successfully: U-662_bus.

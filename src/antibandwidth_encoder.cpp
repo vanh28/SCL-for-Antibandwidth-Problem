@@ -1,56 +1,62 @@
 #include "antibandwidth_encoder.h"
+#include "abp_encoder.h"
 
 #include <iostream>
 #include <assert.h>
-#include <chrono>
+#include <unistd.h>
+#include <regex>
+#include <sstream>
+#include <cmath>
+#include <sys/mman.h>
 
 namespace SATABP
 {
 
-    AntibandwidthEncoder::AntibandwidthEncoder() {};
+    AntibandwidthEncoder::AntibandwidthEncoder()
+    {
+        max_consumed_memory = (float *)mmap(nullptr, sizeof(float), PROT_READ | PROT_WRITE,
+                                            MAP_SHARED | MAP_ANONYMOUS, -1, 0);
+    };
 
     AntibandwidthEncoder::~AntibandwidthEncoder()
     {
-        delete g;
+        end_time = std::chrono::high_resolution_clock::now();
+        auto encode_duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
+
+        std::cout << "r\n";
+        std::cout << "r Final results: \n";
+        std::cout << "r Max width SAT:  \t" << (max_width_SAT == std::numeric_limits<int>::min() ? "-" : std::to_string(max_width_SAT)) << "\n";
+        std::cout << "r Min width UNSAT:\t" << (min_width_UNSAT == std::numeric_limits<int>::max() ? "-" : std::to_string(min_width_UNSAT)) << "\n";
+        std::cout << "r Total real time: " << encode_duration << " ms\n";
+        std::cout << "r Total memory consumed " << *max_consumed_memory << " MB\n";
+        std::cout << "r\n";
+        std::cout << "r\n";
     };
 
     void AntibandwidthEncoder::read_graph(std::string graph_file_name)
     {
-        g = new Graph(graph_file_name);
+        graph = new Graph(graph_file_name);
     };
 
     void AntibandwidthEncoder::encode_and_solve_abws()
     {
-        switch (enc_strategy)
+        switch (iterative_strategy)
         {
         case from_lb:
-            std::cout << "c Solving strategy: from LB to UB." << std::endl;
+            std::cout << "c Iterative strategy: from LB to UB.\n";
             encode_and_solve_abw_problems_from_lb();
             break;
         case from_ub:
-            std::cout << "c Solving strategy: from UB to LB." << std::endl;
+            std::cout << "c Iterative strategy: from UB to LB.\n";
             encode_and_solve_abw_problems_from_ub();
             break;
         case bin_search:
-            std::cout << "c Solving strategy: binary search between LB and UB." << std::endl;
+            std::cout << "c Iterative strategy: binary search between LB and UB.\n";
             encode_and_solve_abw_problems_bin_search();
             break;
         default:
-            std::cerr << "c Unrecognized encoder strategy " << enc_strategy << "." << std::endl;
+            std::cerr << "c Unrecognized iterative strategy " << iterative_strategy << ".\n";
             return;
-        }
-    };
-
-    void AntibandwidthEncoder::encode_and_solve_abw_problems(int start_w, int step, int prev_res, int stop_w)
-    {
-        for (int w = start_w; (w > 0 && w != stop_w && w != w_cap); w += step)
-        {
-            bool error = encode_and_solve_antibandwidth_problem(w);
-            if (error)
-                break;
-            if (SAT_res != prev_res)
-                break; // reached UNSAT->SAT or SAT->UNSAT point
-            prev_res = SAT_res;
         }
     };
 
@@ -58,118 +64,380 @@ namespace SATABP
     {
         int w_from, w_to;
         setup_bounds(w_from, w_to);
-        encode_and_solve_abw_problems(w_from, +1, 10, w_to + 1);
+        encode_and_solve_abw_problems(w_from, +1, w_to + 1);
     };
 
     void AntibandwidthEncoder::encode_and_solve_abw_problems_from_ub()
     {
-        int w_from, w_to;
-        setup_bounds(w_from, w_to);
-        encode_and_solve_abw_problems(w_to, -1, 20, w_from - 1);
+        std::cerr << "e Iterative strategy UB has not yet implemented.\n";
     };
 
     void AntibandwidthEncoder::encode_and_solve_abw_problems_bin_search()
     {
-        int w_from, w_to;
-        setup_bounds(w_from, w_to);
+        std::cerr << "e Iterative strategy bin has not yet implemented.\n";
+    };
 
-        int candidate_w = w_from;
+    std::vector<int> AntibandwidthEncoder::get_child_pids(int ppid)
+    {
+        std::vector<int> childPIDs;
+        std::ifstream file("/proc/" + std::to_string(ppid) + "/task/" + std::to_string(ppid) + "/children");
 
-        while (w_from <= w_to)
+        if (!file.is_open())
         {
-            candidate_w = (w_from + w_to) / 2;
-            encode_and_solve_antibandwidth_problem(candidate_w);
-            if (SAT_res == 10)
+            std::cerr << "Unable to open /proc/" << ppid << "/task/" << ppid << "/children" << std::endl;
+            return childPIDs;
+        }
+
+        std::string line;
+        if (std::getline(file, line))
+        {
+            std::istringstream iss(line);
+            int childPID;
+            while (iss >> childPID)
             {
-                w_from = candidate_w + 1;
+                childPIDs.push_back(childPID);
             }
-            else if (SAT_res == 20)
-            {
-                w_to = candidate_w - 1;
-            }
-            else
-            {
+        }
+        file.close();
+        return childPIDs;
+    }
+
+    std::vector<int> AntibandwidthEncoder::get_descendant_pids(int ppid)
+    {
+        std::vector<int> descendantPIDs;
+
+        std::vector<int> childPIDs = get_child_pids(ppid);
+
+        for (int childPID : childPIDs)
+        {
+            descendantPIDs.push_back(childPID);
+
+            std::vector<int> grandChildPIDs = get_descendant_pids(childPID);
+            descendantPIDs.insert(descendantPIDs.end(), grandChildPIDs.begin(), grandChildPIDs.end());
+        }
+
+        return descendantPIDs;
+    }
+
+    size_t AntibandwidthEncoder::get_total_memory_usage(int pid)
+    {
+        size_t totalMemoryUsage = get_memory_usage(pid);
+
+        std::vector<int> descendant_pids = get_descendant_pids(pid);
+        for (int descendant_pid : descendant_pids)
+        {
+            totalMemoryUsage += get_memory_usage(descendant_pid);
+        }
+
+        // std::cout << "c [Lim] Process " << pid << " consumed total " << totalMemoryUsage / 1024.0 << " MB.\n";
+        return totalMemoryUsage;
+    }
+
+    size_t AntibandwidthEncoder::get_memory_usage(int pid)
+    {
+        std::ifstream file("/proc/" + std::to_string(pid) + "/status");
+        if (!file.is_open())
+        {
+            std::cerr << "Unable to open /proc/" << pid << "/status" << std::endl;
+            return 0;
+        }
+
+        std::string line;
+        size_t memoryUsage = 0;
+
+        while (std::getline(file, line))
+        {
+            if (line.find("VmRSS:") == 0)
+            { // Look for the VmRSS field
+                std::istringstream iss(line);
+                std::string key, value, unit;
+                iss >> key >> value >> unit;     // VmRSS: value unit
+                memoryUsage = std::stoul(value); // Memory usage in kilobytes (KB)
                 break;
             }
         }
-    };
 
-    bool AntibandwidthEncoder::encode_and_solve_antibandwidth_problem(int w)
+        file.close();
+        // std::cout << "c [Lim] Process " << pid << " consumed " << memoryUsage / 1024.0 << " MB.\n";
+        return memoryUsage;
+    }
+
+    /*
+     *  Check if limit conditions are satified or not
+     *  Return:
+     *      0   if all the conditions is satified.
+     *      -1  if out of memory.
+     *      -2  if out of real time.
+     *      -3  if out of elapsed time.
+     */
+    int AntibandwidthEncoder::is_limit_satified()
     {
-        std::cout << "c Antibandwidth problem with w = " << w << " ( " << g->graph_name << " ):" << std::endl;
-        if (g->n < 1)
+        if (consumed_memory > memory_limit)
+            return -1;
+
+        if (consumed_real_time > real_time_limit)
+            return -2;
+
+        if (consumed_elapsed_time > elapsed_time_limit)
+            return -3;
+
+        return 0;
+    }
+
+    void AntibandwidthEncoder::create_limit_pid()
+    {
+        lim_pid = fork();
+        if (lim_pid < 0)
         {
-            std::cout << "c The input graph is too small, there is nothing to encode here." << std::endl;
-            SAT_res = 0; // should break loop
-            return 0;
+            std::cerr << "e [Lim] Fork Failed!\n";
+            exit(-1);
         }
-        if (w < 2)
+        else if (lim_pid == 0)
         {
-            std::cout << "c There is always at least 1 distance in any labelling. There is nothing to encode here." << std::endl;
-            SAT_res = 10; // check solution can not be invoked
-            return 0;
+            pid_t main_pid = getppid();
+            int limit_state = is_limit_satified();
+
+            while (limit_state == 0)
+            {
+                consumed_memory = std::round(get_total_memory_usage(main_pid) * 10 / 1024.0) / 10;
+                consumed_real_time += std::round((float)sample_rate * 10 / 1000000.0) / 10;
+                consumed_elapsed_time += (float)(sample_rate * (get_descendant_pids(main_pid).size() - 1)) / 1000000.0;
+
+                if (consumed_memory > *max_consumed_memory)
+                {
+                    *max_consumed_memory = consumed_memory;
+                    // std::cout << "[Lim] Memory consumed: " << max_consumed_memory << " MB\n";
+                }
+
+                sampler_count++;
+                if (sampler_count >= report_rate)
+                {
+                    std::cout << "c [Lim] Sampler:\t" << "Memory: " << consumed_memory << " MB\tReal time: "
+                              << consumed_real_time << "s\tElapsed time: " << consumed_elapsed_time << "s\n";
+                    sampler_count = 0;
+                }
+                usleep(sample_rate);
+
+                limit_state = is_limit_satified();
+            }
+
+            exit(limit_state);
         }
-
-        setup_for_solving();
-        std::cout << "c Encoding starts with w = " << w << ":" << std::endl;
-
-        auto t1 = std::chrono::high_resolution_clock::now();
-        enc->encode_antibandwidth(w, g->edges);
-        auto t2 = std::chrono::high_resolution_clock::now();
-        auto encode_duration = std::chrono::duration_cast<std::chrono::seconds>(t2 - t1).count();
-
-        std::cout << "c\tEncoding duration: " << encode_duration << "s" << std::endl;
-        std::cout << "c\tNumber of clauses: " << cc->size() << std::endl;
-        std::cout << "c\tNumber of irredundant clauses: " << solver->irredundant() << std::endl;
-        std::cout << "c\tNumber of variables: " << vh->size() << std::endl;
-        std::cout << "c SAT Solving starts:" << std::endl;
-
-        t1 = std::chrono::high_resolution_clock::now();
-        SAT_res = solver->solve();
-        t2 = std::chrono::high_resolution_clock::now();
-        auto solving_duration = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
-        std::cout << "c\tSolving duration: " << solving_duration << " ms" << std::endl;
-        std::cout << "c\tAnswer: " << std::endl;
-        if (SAT_res == 10)
-        {
-            std::cout << "s SAT (w = " << w << ")" << std::endl;
-        }
-        else if (SAT_res == 20)
-            std::cout << "s UNSAT (w = " << w << ")" << std::endl;
         else
         {
-            std::cout << "s Error at w = " << w << ", SAT result: " << SAT_res << std::endl;
-            cleanup_solving();
-            return 1;
+            // std::cout << "c Lim pid is forked at " << lim_pid << "\n";
         }
+    }
 
-        if (check_solution && SAT_res == 10)
+    void AntibandwidthEncoder::create_abp_pid(int width)
+    {
+        // std::cout << "p PID: " << getpid() << ", PPID: " << getppid() << "\n";
+        pid_t pid = fork();
+        // std::cout << "q PID: " << getpid() << ", PPID: " << getppid() << "\n";
+
+        if (pid < 0)
         {
-            int solution_abw = calculate_sat_solution();
-            if (solution_abw < w)
-            {
-                std::cerr << "c Error, the solution is not correct, antibandwidth should be at least " << w << ", but it is " << solution_abw << "." << std::endl;
+            std::cerr << "e [w = " << width << "] Fork failed!\n";
+            exit(-1);
+        }
+        else if (pid == 0)
+        {
+            std::cout << "c [w = " << width << "] Start task in PID: " << getpid() << ".\n";
 
-                cleanup_solving();
-                return 1;
-            }
+            // Child process: perform the task
+            int result = do_abp_pid_task(width);
+
+            exit(result);
+        }
+        else
+        {
+            // Parent process stores the child's PID
+            // std::cout << "c Child pid " << width << " - " << pid << " is tracked in PID: " << getpid() << ".\n";
+            abp_pids[width] = pid;
+        }
+    }
+
+    int AntibandwidthEncoder::do_abp_pid_task(int width)
+    {
+        // Dynamically allocate and use ABPEncoder in child process
+        ABPEncoder *abp_enc = new ABPEncoder(symmetry_break_strategy, graph, width);
+        int result = abp_enc->encode_and_solve_abp();
+
+        std::cout << "c [w = " << width << "] Result: " << result << "\n";
+
+        // Clean up dynamically allocated memory
+        delete abp_enc;
+
+        // std::cout << "c [w = " << width << "] Child " << width << " completed task." << std::endl;
+        return result;
+    }
+
+    void AntibandwidthEncoder::encode_and_solve_abw_problems(int start_w, int step, int stop_w)
+    {
+        start_time = std::chrono::high_resolution_clock::now();
+        create_limit_pid();
+
+        int current_width = start_w;
+        int number_width = stop_w - start_w;
+
+        for (int i = 0; i < process_count && i < number_width; i += step)
+        {
+            create_abp_pid(current_width);
+            current_width += step;
         }
 
-        cleanup_solving();
+        bool limit_violated = false;
 
-        std::cout << "c" << std::endl
-                  << "c" << std::endl;
-        return 0;
+        // Parent process waits until all child processes finish
+        while (!abp_pids.empty())
+        {
+            int status;
+            pid_t finished_pid = wait(&status); // Wait for any child to complete
+
+            if (finished_pid == lim_pid)
+            {
+                limit_violated = true;
+                std::cout << "c [Lim] End with result: " << status << "\n";
+                while (!abp_pids.empty())
+                {
+                    kill(abp_pids.begin()->second, SIGTERM);
+                    abp_pids.erase(abp_pids.begin());
+                }
+            }
+            else if (WIFEXITED(status))
+            {
+                // Remove the finished child from the map
+                for (auto it = abp_pids.begin(); it != abp_pids.end(); ++it)
+                {
+                    if (it->second == finished_pid)
+                    {
+                        // std::cout << "c Child pid " << it->first << " - " << it->second << " exited with status " << WEXITSTATUS(status) << "\n";
+
+                        switch (WEXITSTATUS(status))
+                        {
+                        case 10:
+                            if (it->first > max_width_SAT)
+                            {
+                                max_width_SAT = it->first;
+                                std::cout << "c Max width SAT is set to " << it->first << "\n";
+                            }
+
+                            for (auto ita = abp_pids.begin(); ita != abp_pids.end(); ita++)
+                            {
+                                // Pid with lower width than SAT pid is also SAT.
+                                if (ita->first < it->first)
+                                {
+                                    std::cout << "c Kill lower pid " << ita->first << ".\n";
+                                    kill(ita->second, SIGTERM);
+                                }
+                            }
+                            break;
+                        case 20:
+                            if (it->first < min_width_UNSAT)
+                            {
+                                min_width_UNSAT = it->first;
+                                std::cout << "c Min width UNSAT is set to " << it->first << "\n";
+                            }
+
+                            for (auto ita = abp_pids.begin(); ita != abp_pids.end(); ita++)
+                            {
+                                // Pid with higher width than UNSAT pid is also UNSAT.
+                                if (ita->first > it->first)
+                                {
+                                    std::cout << "c Kill higher pid " << ita->first << ".\n";
+                                    kill(ita->second, SIGTERM);
+                                }
+                            }
+                            break;
+                        default:
+                            break;
+                        }
+
+                        abp_pids.erase(it);
+                        if (abp_pids.empty() && kill(lim_pid, 0) == 0)
+                        {
+                            kill(lim_pid, SIGTERM);
+                        }
+                        break;
+                    }
+                }
+            }
+            else if (WIFSIGNALED(status))
+            {
+                // Remove the terminated child from the map
+                for (auto it = abp_pids.begin(); it != abp_pids.end(); ++it)
+                {
+                    if (it->second == finished_pid)
+                    {
+                        std::cout << "c Child pid " << it->first << " - " << it->second << " terminated by signal " << WTERMSIG(status) << "\n";
+                        abp_pids.erase(it);
+                        if (abp_pids.empty() && kill(lim_pid, 0) == 0)
+                        {
+                            kill(lim_pid, SIGTERM);
+                        }
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                for (auto it = abp_pids.begin(); it != abp_pids.end(); ++it)
+                {
+                    if (it->second == finished_pid)
+                    {
+                        std::cerr << "e Child pid " << it->first << " - " << it->second << " stopped or otherwise terminated.\n";
+                        abp_pids.erase(it);
+                        if (abp_pids.empty() && kill(lim_pid, 0) == 0)
+                        {
+                            kill(lim_pid, SIGTERM);
+                        }
+                        break;
+                    }
+                }
+            }
+
+            // std::string log_remaining_child_pids = "c Remaining child pids: " + std::to_string(abp_pids.size()) + "\n";
+            // for (auto it = abp_pids.begin(); it != abp_pids.end(); ++it)
+            // {
+            //     log_remaining_child_pids.append("c - Pid ");
+            //     log_remaining_child_pids.append(std::to_string(it->first));
+            //     log_remaining_child_pids.append(" - ");
+            //     log_remaining_child_pids.append(std::to_string(it->second));
+            //     log_remaining_child_pids.append("\n");
+            // }
+            // std::cout << log_remaining_child_pids;
+
+            /*
+             *   Debug get_child_pids(int) and get_memory_usage functions.
+             */
+            // auto saved_child_pids = get_child_pids(getpid());
+            // std::string log_saved_child_pids = "c Saved child pids: " + std::to_string(saved_child_pids.size()) + "\n";
+            // for (auto pid : saved_child_pids)
+            // {
+            //     log_saved_child_pids.append("c - Saved pid ");
+            //     log_saved_child_pids.append(std::to_string(pid));
+            //     log_saved_child_pids.append(": ");
+            //     log_saved_child_pids.append(std::to_string(get_memory_usage(pid)));
+            //     log_saved_child_pids.append(" KB.\n");
+            // }
+            // std::cout << log_saved_child_pids;
+
+            if (!limit_violated){
+                while (int(abp_pids.size()) < process_count && current_width < stop_w && current_width < min_width_UNSAT)
+                {
+                    create_abp_pid(current_width);
+                    current_width += step;
+                }
+            }
+            
+        }
+        std::cout << "c All children have completed their tasks or were terminated." << std::endl;
     };
 
     void AntibandwidthEncoder::encode_and_print_abw_problem(int w)
     {
-        setup_for_print();
-
-        enc->encode_antibandwidth(w, g->edges);
-        cc->print_dimacs();
-
-        cleanup_print();
+        w = w;
+        std::cerr << "e Encode and print ABP have not yet implemented.\n";
     };
 
     void AntibandwidthEncoder::setup_bounds(int &w_from, int &w_to)
@@ -178,12 +446,12 @@ namespace SATABP
 
         if (overwrite_lb)
         {
-            std::cout << "c LB " << w_from << " is overwritten with " << forced_lb << "." << std::endl;
+            std::cout << "c LB " << w_from << " is overwritten with " << forced_lb << ".\n";
             w_from = forced_lb;
         }
         if (overwrite_ub)
         {
-            std::cout << "c UB " << w_to << " is overwritten with " << forced_ub << "." << std::endl;
+            std::cout << "c UB " << w_to << " is overwritten with " << forced_ub << ".\n";
             w_to = forced_ub;
         }
         if (w_from > w_to)
@@ -191,8 +459,7 @@ namespace SATABP
             int tmp = w_from;
             w_from = w_to;
             w_to = tmp;
-            std::cout << "c Flipped LB and UB to avoid LB > UB ";
-            std::cout << "(LB = " << w_from << ", UB = " << w_to << ")." << std::endl;
+            std::cout << "c Flipped LB and UB to avoid LB > UB: (LB = " << w_from << ", UB = " << w_to << ").\n";
         }
 
         assert((w_from <= w_to) && (w_from >= 1));
@@ -200,157 +467,32 @@ namespace SATABP
 
     void AntibandwidthEncoder::lookup_bounds(int &lb, int &ub)
     {
-        auto pos = abw_LBs.find(g->graph_name);
+        auto pos = abw_LBs.find(graph->graph_name);
         if (pos != abw_LBs.end())
         {
             lb = pos->second;
-            std::cout << "c LB-w = " << lb << " (LB in Sinnl - A note on computational approaches for the antibandwidth problem)." << std::endl;
+            std::cout << "c LB-w = " << lb << " (LB in Sinnl - A note on computational approaches for the antibandwidth problem).\n";
         }
         else
         {
             lb = 1;
-            std::cout << "c No predefined lower bound is found for " << g->graph_name << "." << std::endl;
-            std::cout << "c LB-w = 1 (default value)." << std::endl;
+            std::cout << "c No predefined lower bound is found for " << graph->graph_name << ".\n";
+            std::cout << "c LB-w = 1 (default value).\n";
         }
 
-        pos = abw_UBs.find(g->graph_name);
+        pos = abw_UBs.find(graph->graph_name);
         if (pos != abw_UBs.end())
         {
             ub = pos->second;
             if (verbose)
-                std::cout << "c UB-w = " << ub << " (UB in Sinnl - A note on computational approaches for the antibandwidth problem)." << std::endl;
+                std::cout << "c UB-w = " << ub << " (UB in Sinnl - A note on computational approaches for the antibandwidth problem).\n";
         }
         else
         {
-            ub = g->n / 2 + 1;
-            std::cout << "c No predefined upper bound is found for " << g->graph_name << "." << std::endl;
-            std::cout << "c UB-w = " << ub << " (default value calculated as n/2+1)." << std::endl;
+            ub = graph->n / 2 + 1;
+            std::cout << "c No predefined upper bound is found for " << graph->graph_name << ".\n";
+            std::cout << "c UB-w = " << ub << " (default value calculated as n/2+1).\n";
         }
-    };
-
-    void AntibandwidthEncoder::setup_for_solving()
-    {
-        setup_cadical();
-        vh = new VarHandler(1, g->n);
-        cc = new CadicalClauseContainer(vh, split_limit, solver);
-
-        setup_encoder();
-    };
-
-    void AntibandwidthEncoder::cleanup_solving()
-    {
-        delete enc;
-        delete cc;
-        delete vh;
-        delete solver;
-    };
-
-    void AntibandwidthEncoder::setup_for_print()
-    {
-        vh = new VarHandler(1, g->n);
-        cc = new ClauseVector(vh, split_limit);
-
-        setup_encoder();
-    };
-
-    void AntibandwidthEncoder::cleanup_print()
-    {
-        delete enc;
-        delete cc;
-        delete vh;
-    };
-
-    void AntibandwidthEncoder::setup_cadical()
-    {
-        std::cout << "c Initializing CaDiCaL ";
-        solver = new CaDiCaL::Solver;
-
-        std::cout << "(version " << solver->version() << ")." << std::endl;
-
-        auto res = solver->configure(sat_configuration.data());
-        if (verbose)
-            std::cout << "c\tConfiguring CaDiCaL as --" << sat_configuration << " (" << res << ")." << std::endl;
-
-        if (force_phase)
-        {
-            std::vector<std::string> force_phase_options{"--forcephase", "--phase=0", "--no-rephase"};
-            for (unsigned i = 0; i < force_phase_options.size(); ++i)
-            {
-                res = solver->set_long_option(force_phase_options[i].data());
-                if (verbose)
-                    std::cout << "c\tCaDiCaL option " << force_phase_options[i] << " added (" << res << ")" << std::endl;
-            }
-        }
-    };
-
-    void AntibandwidthEncoder::setup_encoder()
-    {
-        switch (enc_choice)
-        {
-        case duplex:
-            std::cout << "c Initializing a Duplex encoder with n = " << g->n << "." << std::endl;
-            enc = new DuplexEncoder(g, cc, vh);
-            enc->symmetry_break_point = symmetry_break_point;
-            break;
-        case reduced:
-            std::cout << "c Initializing a Naive-Reduced encoder with n = " << g->n << "." << std::endl;
-            enc = new ReducedEncoder(g, cc, vh);
-            enc->symmetry_break_point = symmetry_break_point;
-            break;
-        case seq:
-            std::cout << "c Initializing a Sequential encoder with n = " << g->n << "." << std::endl;
-            enc = new SeqEncoder(g, cc, vh);
-            enc->symmetry_break_point = symmetry_break_point;
-            break;
-        case product:
-            std::cout << "c Initializing a 2-Product encoder with n = " << g->n << "." << std::endl;
-            enc = new ProductEncoder(g, cc, vh);
-            enc->symmetry_break_point = symmetry_break_point;
-            break;
-        case ladder:
-            std::cout << "c Initializing a Ladder encoder with n = " << g->n << "." << std::endl;
-            enc = new LadderEncoder(g, cc, vh);
-            enc->symmetry_break_point = symmetry_break_point;
-            break;
-        default:
-            std::cerr << "c Unrecognized encoder type " << enc_choice << "." << std::endl;
-            return;
-        }
-    };
-
-    int AntibandwidthEncoder::calculate_sat_solution()
-    {
-        std::cout << "c\tSolution check:" << std::endl
-                  << "p calculated antibandwidth = ";
-
-        std::vector<int> node_labels = std::vector<int>();
-        if (!extract_node_labels(node_labels))
-            return 0;
-        int min_dist = g->calculate_antibandwidth(node_labels);
-        std::cout << min_dist << "." << std::endl;
-
-        return min_dist;
-    };
-
-    bool AntibandwidthEncoder::extract_node_labels(std::vector<int> &node_labels)
-    {
-        for (unsigned node = 0; node < g->n; ++node)
-        {
-            for (unsigned label = 1; label <= g->n; ++label)
-            {
-                int res = solver->val(node * g->n + label);
-                if (res > 0)
-                {
-                    node_labels.push_back(label);
-                }
-            }
-        }
-        if (node_labels.size() > g->n)
-        {
-            std::cerr << "Error, the solution is not a labelling: more than one label assigned for one of the nodes." << std::endl;
-            return false;
-        }
-        return true;
     };
 
     std::unordered_map<std::string, int> AntibandwidthEncoder::abw_LBs = {
@@ -404,5 +546,4 @@ namespace SATABP
         {"V-nos6.mtx.rnd", 337},
         {"W-685_bus.mtx.rnd", 136},
         {"X-can__715.mtx.rnd", 142}};
-
 }

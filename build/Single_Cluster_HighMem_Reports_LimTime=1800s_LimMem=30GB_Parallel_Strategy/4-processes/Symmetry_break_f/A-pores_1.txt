@@ -1,0 +1,70 @@
+/home/hvanh28/anti-bandwidth-scl-extend/build/abw_enc /home/hvanh28/anti-bandwidth-scl-extend/build/Benchmarks/A-pores_1.mtx.rnd --ladder -symmetry-break f -limit-real-time 1800 -limit-memory 30000 -process-count 4
+c LadderEncoder 1.0.
+c Real time limit is set to 1800.
+c Memory limit is set to 30000.
+c Iterative strategy: from LB to UB.
+c LB-w = 6 (LB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c UB-w = 8 (UB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c [w = 6] Start task in PID: 409979.
+c [w = 6] Antibandwidth problem with w = 6 (A-pores_1.mtx.rnd):
+c [w = 7] Start task in PID: 409980.
+c [w = 6] Initializing CaDiCaL (version 1.2.1).
+c [w = 6] Configuring CaDiCaL as --sat (1).
+c [w = 7] Antibandwidth problem with w = 7 (A-pores_1.mtx.rnd):
+c [w = 6] Initializing a Ladder encoder with n = 30.
+c [w = 6] Encoding starts with w = 6:
+c [w = 8] Start task in PID: 409981.
+c [w = 7] Initializing CaDiCaL (version 1.2.1).
+c [w = 7] Configuring CaDiCaL as --sat (1).
+c [w = 8] Antibandwidth problem with w = 8 (A-pores_1.mtx.rnd):
+c [w = 7] Initializing a Ladder encoder with n = 30.
+c [w = 7] Encoding starts with w = 7:
+c [w = 8] Initializing CaDiCaL (version 1.2.1).
+c [w = 8] Configuring CaDiCaL as --sat (1).
+c [w = 8] Initializing a Ladder encoder with n = 30.
+c [w = 8] Encoding starts with w = 8:
+c [w = 7] Encoding duration: 0s
+c [w = 7] Number of clauses: 16737
+c [w = 7] Number of irredundant clauses: 16553
+c [w = 7] Number of variables: 2640
+c [w = 7] SAT Solving starts:
+c [w = 6] Encoding duration: 0s
+c [w = 6] Number of clauses: 16570
+c [w = 6] Number of irredundant clauses: 16364
+c [w = 6] Number of variables: 2550
+c [w = 6] SAT Solving starts:
+c [w = 8] Encoding duration: 0s
+c [w = 8] Number of clauses: 16274
+c [w = 8] Number of irredundant clauses: 16099
+c [w = 8] Number of variables: 2580
+c [w = 8] SAT Solving starts:
+c [w = 6] Solving duration: 55 ms
+c [w = 6] Answer: 
+s [w = 6] SAT (w = 6)
+c [w = 6] Solution check = 6.
+c [w = 6] Result: 10
+c Max width SAT is set to 6
+c [w = 8] Solving duration: 3368 ms
+c [w = 8] Answer: 
+s [w = 8] UNSAT (w = 8)
+c [w = 8] Result: 20
+c Min width UNSAT is set to 8
+c [Lim] Sampler:        Memory: 16.7 MB Real time: 10s  Elapsed time: 13.5s
+c [Lim] Sampler:        Memory: 32 MB   Real time: 20s  Elapsed time: 23.5001s
+c [Lim] Sampler:        Memory: 35.4 MB Real time: 30.0001s     Elapsed time: 33.5001s
+c [w = 7] Solving duration: 33646 ms
+c [w = 7] Answer: 
+s [w = 7] UNSAT (w = 7)
+c [w = 7] Result: 20
+c Min width UNSAT is set to 7
+c All children have completed their tasks or were terminated.
+r
+r Final results: 
+r Max width SAT:        6
+r Min width UNSAT:      7
+r Total real time: 33654 ms
+c Signal interruption.
+r Total memory consumed 37.7 MB
+r
+r
+Command executed successfully: A-pores_1.

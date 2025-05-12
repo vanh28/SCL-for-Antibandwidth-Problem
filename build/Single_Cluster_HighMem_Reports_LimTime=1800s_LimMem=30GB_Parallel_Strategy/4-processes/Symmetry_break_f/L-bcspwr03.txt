@@ -1,0 +1,35 @@
+/home/hvanh28/anti-bandwidth-scl-extend/build/abw_enc /home/hvanh28/anti-bandwidth-scl-extend/build/Benchmarks/L-bcspwr03.mtx.rnd --ladder -symmetry-break f -limit-real-time 1800 -limit-memory 30000 -process-count 4
+c LadderEncoder 1.0.
+c Real time limit is set to 1800.
+c Memory limit is set to 30000.
+c Iterative strategy: from LB to UB.
+c LB-w = 39 (LB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c UB-w = 39 (UB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c [w = 39] Start task in PID: 409961.
+c [w = 39] Antibandwidth problem with w = 39 (L-bcspwr03.mtx.rnd):
+c [w = 39] Initializing CaDiCaL (version 1.2.1).
+c [w = 39] Configuring CaDiCaL as --sat (1).
+c [w = 39] Initializing a Ladder encoder with n = 118.
+c [w = 39] Encoding starts with w = 39:
+c [w = 39] Encoding duration: 0s
+c [w = 39] Number of clauses: 180926
+c [w = 39] Number of irredundant clauses: 180545
+c [w = 39] Number of variables: 40828
+c [w = 39] SAT Solving starts:
+c [w = 39] Solving duration: 577 ms
+c [w = 39] Answer: 
+s [w = 39] SAT (w = 39)
+c [w = 39] Solution check = 39.
+c [w = 39] Result: 10
+c Max width SAT is set to 39
+c All children have completed their tasks or were terminated.
+r
+r Final results: 
+r Max width SAT:        39
+r Min width UNSAT:      -
+r Total real time: 647 ms
+c Signal interruption.
+r Total memory consumed 41 MB
+r
+r
+Command executed successfully: L-bcspwr03.

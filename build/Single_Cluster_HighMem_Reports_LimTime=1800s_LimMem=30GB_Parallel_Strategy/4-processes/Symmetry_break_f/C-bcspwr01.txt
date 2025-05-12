@@ -1,0 +1,52 @@
+/home/hvanh28/anti-bandwidth-scl-extend/build/abw_enc /home/hvanh28/anti-bandwidth-scl-extend/build/Benchmarks/C-bcspwr01.mtx.rnd --ladder -symmetry-break f -limit-real-time 1800 -limit-memory 30000 -process-count 4
+c LadderEncoder 1.0.
+c Real time limit is set to 1800.
+c Memory limit is set to 30000.
+c Iterative strategy: from LB to UB.
+c LB-w = 16 (LB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c UB-w = 17 (UB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c [w = 16] Start task in PID: 368179.
+c [w = 16] Antibandwidth problem with w = 16 (C-bcspwr01.mtx.rnd):
+c [w = 17] Start task in PID: 368180.
+c [w = 16] Initializing CaDiCaL (version 1.2.1).
+c [w = 17] Antibandwidth problem with w = 17 (C-bcspwr01.mtx.rnd):
+c [w = 16] Configuring CaDiCaL as --sat (1).
+c [w = 16] Initializing a Ladder encoder with n = 39.
+c [w = 16] Encoding starts with w = 16:
+c [w = 17] Initializing CaDiCaL (version 1.2.1).
+c [w = 17] Configuring CaDiCaL as --sat (1).
+c [w = 17] Initializing a Ladder encoder with n = 39.
+c [w = 17] Encoding starts with w = 17:
+c [w = 16] Encoding duration: 0s
+c [w = 16] Number of clauses: 16756
+c [w = 16] Number of irredundant clauses: 16638
+c [w = 16] Number of variables: 4329
+c [w = 16] SAT Solving starts:
+c [w = 17] Encoding duration: 0s
+c [w = 17] Number of clauses: 16650
+c [w = 17] Number of irredundant clauses: 16530
+c [w = 17] Number of variables: 4368
+c [w = 17] SAT Solving starts:
+c [w = 16] Solving duration: 130 ms
+c [w = 16] Answer: 
+s [w = 16] SAT (w = 16)
+c [w = 16] Solution check = 16.
+c [w = 16] Result: 10
+c Max width SAT is set to 16
+c [w = 17] Solving duration: 3429 ms
+c [w = 17] Answer: 
+s [w = 17] SAT (w = 17)
+c [w = 17] Solution check = 17.
+c [w = 17] Result: 10
+c Max width SAT is set to 17
+c All children have completed their tasks or were terminated.
+r
+r Final results: 
+r Max width SAT:        17
+r Min width UNSAT:      -
+r Total real time: 3437 ms
+c Signal interruption.
+r Total memory consumed 16.8 MB
+r
+r
+Command executed successfully: C-bcspwr01.

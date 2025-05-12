@@ -4,7 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <signal.h>
-#include <stdexcept> // std::out_of_range
+#include <stdexcept>
 #include <map>
 #include "src/antibandwidth_encoder.h"
 
@@ -45,17 +45,22 @@ static const std::map<std::string, std::string> option_list = {
     {"--ladder", "Use ladder encoding for staircase constraints and NSC for At-Most-One constraints [default: false]"},
     {"--conf-sat", "Use --sat configuration of CaDiCaL [default: true]"},
     {"--conf-unsat", "Use --unsat configuration of CaDiCaL [default: false]"},
-    {"--conf-def", "Use default configuration of CaDiCaL [default: false]"},
     {"--force-phase", "Set options --forcephase,--phase=0 and --no-rephase of CaDiCal [default: false]"},
-    {"--check-solution", "Calculate the antibandwidth of the found SAT solution and compare it to the actual width [default: false]"},
+    {"--verify-result", "Verify the antibandwidth of the found SAT solution [default: false]"},
     {"--from-ub", "Start solving with width = UB, decreasing in each iteration [default: false]"},
     {"--from-lb", "Start solving with width = LB, increasing in each iteration [default: true]"},
     {"--bin-search", "Start solving with LB+UB/2 and update LB or UB according to SAT/UNSAT result and repeat"},
     {"-split-size <n>", "Maximal allowed length of clauses, every longer clause is split up into two by introducing a new variable"},
     {"-set-lb <new LB>", "Overwrite predefined LB with <new LB>, has to be at least 2"},
     {"-set-ub <new UB>", "Overwrite predefined UB with <new UB>, has to be positive"},
+    {"-limit-memory <MB>", "Overwrite memory consumption restriction [default: FLOAT_MAX]"},
+    {"-limit-real-time <seconds>", "Overwrite real time consumption restriction [default: FLOAT_MAX]"},
+    {"-limit-elapsed-time <seconds>", "Overwrite elapsed time consumption restriction [default: FLOAT_MAX]"},
+    {"-sample-rate <microseconds>", "Overwrite sampler interval [default: 100000]"},
+    {"-report-rate <sampler>", "Overwrite elapsed time interval [default: 100 samplers generates 1 report]"},
     {"-symmetry-break <break point>", "Apply symetry breaking technique in <break point> (f: first node, h: highest degree node, l: lowest degree node, n: none) [default: none]"},
-    {"-print-w <w>", "Only encode and print SAT formula of specified width w (where w > 0), without solving it"}};
+    {"-print-w <w>", "Only encode and print SAT formula of specified width w (where w > 0), without solving it"},
+    {"-process-count <number process>", "Number processes used to solve"}};
 
 int get_number_arg(std::string const &arg)
 {
@@ -106,9 +111,7 @@ int main(int argc, char **argv)
     std::string graph_file;
 
     bool just_print_dimacs = false;
-    int spec_w = 2;
-
-    int split_size = 0;
+    int spec_width = 2;
 
     if (argc < 2)
     {
@@ -136,23 +139,23 @@ int main(int argc, char **argv)
         }
         else if (argv[i] == std::string("--reduced"))
         {
-            abw_enc->enc_choice = EncoderType::reduced;
+            abw_enc->enc_choice = EncoderStrategy::reduced;
         }
         else if (argv[i] == std::string("--seq"))
         {
-            abw_enc->enc_choice = EncoderType::seq;
+            abw_enc->enc_choice = EncoderStrategy::seq;
         }
         else if (argv[i] == std::string("--product"))
         {
-            abw_enc->enc_choice = EncoderType::product;
+            abw_enc->enc_choice = EncoderStrategy::product;
         }
         else if (argv[i] == std::string("--duplex"))
         {
-            abw_enc->enc_choice = EncoderType::duplex;
+            abw_enc->enc_choice = EncoderStrategy::duplex;
         }
         else if (argv[i] == std::string("--ladder"))
         {
-            abw_enc->enc_choice = EncoderType::ladder;
+            abw_enc->enc_choice = EncoderStrategy::ladder;
         }
         else if (argv[i] == std::string("--conf-sat"))
         {
@@ -170,32 +173,32 @@ int main(int argc, char **argv)
         {
             abw_enc->force_phase = true;
         }
-        else if (argv[i] == std::string("--check-solution"))
+        else if (argv[i] == std::string("--verify-result"))
         {
-            abw_enc->check_solution = true;
+            abw_enc->enable_solution_verification = true;
         }
         else if (argv[i] == std::string("--from-ub"))
         {
-            abw_enc->enc_strategy = EncoderStrategy::from_ub;
+            abw_enc->iterative_strategy = IterativeStrategy::from_ub;
         }
         else if (argv[i] == std::string("--from-lb"))
         {
-            abw_enc->enc_strategy = EncoderStrategy::from_lb;
+            abw_enc->iterative_strategy = IterativeStrategy::from_lb;
         }
         else if (argv[i] == std::string("--bin-search"))
         {
-            abw_enc->enc_strategy = EncoderStrategy::bin_search;
+            abw_enc->iterative_strategy = IterativeStrategy::bin_search;
         }
         else if (argv[i] == std::string("-print-w"))
         {
-            spec_w = get_number_arg(argv[++i]);
-            if (spec_w < 2)
+            spec_width = get_number_arg(argv[++i]);
+            if (spec_width < 2)
             {
                 std::cout << "Error, width has to be at least 2." << std::endl;
                 delete abw_enc;
                 return 1;
             }
-            std::cout << "c DIMACS Printing mode for w = " << spec_w << "." << std::endl;
+            std::cout << "c DIMACS Printing mode for w = " << spec_width << "." << std::endl;
             just_print_dimacs = true;
         }
         else if (argv[i] == std::string("-set-lb"))
@@ -222,9 +225,69 @@ int main(int argc, char **argv)
             abw_enc->overwrite_ub = true;
             std::cout << "c UB is predefined as " << abw_enc->forced_ub << "." << std::endl;
         }
+        else if (argv[i] == std::string("-limit-memory"))
+        {
+            int lim_mem = get_number_arg(argv[++i]);
+            if (lim_mem <= 0)
+            {
+                std::cout << "Error, memory limit has to be positive." << std::endl;
+                delete abw_enc;
+                return 1;
+            }
+            std::cout << "c Memory limit is set to " << lim_mem << "." << std::endl;
+            abw_enc->memory_limit = lim_mem;
+        }
+        else if (argv[i] == std::string("-limit-real-time"))
+        {
+            int limit_real_time = get_number_arg(argv[++i]);
+            if (limit_real_time <= 0)
+            {
+                std::cout << "Error, real time limit has to be positive." << std::endl;
+                delete abw_enc;
+                return 1;
+            }
+            std::cout << "c Real time limit is set to " << limit_real_time << "." << std::endl;
+            abw_enc->real_time_limit = limit_real_time;
+        }
+        else if (argv[i] == std::string("-limit-elapsed-time"))
+        {
+            int limit_elapsed_time = get_number_arg(argv[++i]);
+            if (limit_elapsed_time <= 0)
+            {
+                std::cout << "Error, elapsed time limit has to be positive." << std::endl;
+                delete abw_enc;
+                return 1;
+            }
+            std::cout << "c Elapsed time limit is set to " << limit_elapsed_time << "." << std::endl;
+            abw_enc->elapsed_time_limit = limit_elapsed_time;
+        }
+        else if (argv[i] == std::string("-sample-rate"))
+        {
+            int sample_rate = get_number_arg(argv[++i]);
+            if (sample_rate <= 0)
+            {
+                std::cout << "Error, sample rate has to be positive." << std::endl;
+                delete abw_enc;
+                return 1;
+            }
+            std::cout << "c Sample rate is set to " << sample_rate << "." << std::endl;
+            abw_enc->sample_rate = sample_rate;
+        }
+        else if (argv[i] == std::string("-report-rate"))
+        {
+            int report_rate = get_number_arg(argv[++i]);
+            if (report_rate <= 0)
+            {
+                std::cout << "Error, sample rate has to be positive." << std::endl;
+                delete abw_enc;
+                return 1;
+            }
+            std::cout << "c Sample rate is set to " << report_rate << "." << std::endl;
+            abw_enc->report_rate = report_rate;
+        }
         else if (argv[i] == std::string("-split-size"))
         {
-            split_size = get_number_arg(argv[++i]);
+            int split_size = get_number_arg(argv[++i]);
             if (split_size < 0)
             {
                 std::cout << "Error, split size has to be positive." << std::endl;
@@ -236,34 +299,11 @@ int main(int argc, char **argv)
         }
         else if (argv[i] == std::string("-symmetry-break"))
         {
-            std::string break_point = argv[++i];
-            if (break_point == std::string("f"))
-            {
-                abw_enc->symmetry_break_point = break_point;
-                std::cout << "c Symetry breaking in the first node." << std::endl;
-            }
-            else if (break_point == std::string("h"))
-            {
-                abw_enc->symmetry_break_point = break_point;
-                std::cout << "c Symetry breaking in the highest degree node." << std::endl;
-            }
-            else if (break_point == std::string("l"))
-            {
-                abw_enc->symmetry_break_point = break_point;
-                std::cout << "c Symetry breaking in the lowest degree node." << std::endl;
-            }
-            else if (break_point == std::string("n"))
-            {
-                abw_enc->symmetry_break_point = break_point;
-                std::cout << "c Symetry breaking is not applied." << std::endl;
-            }
-            else
-            {
-                std::cout << "c Invalid symetry breaking point." << std::endl;
-
-                delete abw_enc;
-                return 1;
-            }
+            abw_enc->symmetry_break_strategy = argv[++i];
+        }
+        else if (argv[i] == std::string("-process-count"))
+        {
+            abw_enc->process_count = get_number_arg(argv[++i]);
         }
         else
         {
@@ -276,7 +316,7 @@ int main(int argc, char **argv)
 
     if (just_print_dimacs)
     {
-        abw_enc->encode_and_print_abw_problem(spec_w);
+        abw_enc->encode_and_print_abw_problem(spec_width);
     }
     else
     {

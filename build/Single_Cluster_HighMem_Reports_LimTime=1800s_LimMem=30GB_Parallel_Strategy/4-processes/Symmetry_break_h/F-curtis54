@@ -1,0 +1,49 @@
+/home/hvanh28/anti-bandwidth-scl-extend/build/abw_enc /home/hvanh28/anti-bandwidth-scl-extend/build/Benchmarks/F-curtis54.mtx.rnd --ladder -symmetry-break h -limit-real-time 1800 -limit-memory 30000 -process-count 4
+c LadderEncoder 1.0.
+c Real time limit is set to 1800.
+c Memory limit is set to 30000.
+c Iterative strategy: from LB to UB.
+c LB-w = 12 (LB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c UB-w = 13 (UB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c [w = 12] Start task in PID: 199385.
+c [w = 12] Antibandwidth problem with w = 12 (F-curtis54.mtx.rnd):
+c [w = 13] Start task in PID: 199386.
+c [w = 13] Antibandwidth problem with w = 13 (F-curtis54.mtx.rnd):
+c [w = 12] Initializing CaDiCaL (version 1.2.1).
+c [w = 12] Configuring CaDiCaL as --sat (1).
+c [w = 12] Initializing a Ladder encoder with n = 54.
+c [w = 12] Encoding starts with w = 12:
+c [w = 13] Initializing CaDiCaL (version 1.2.1).
+c [w = 13] Configuring CaDiCaL as --sat (1).
+c [w = 13] Initializing a Ladder encoder with n = 54.
+c [w = 13] Encoding starts with w = 13:
+c [w = 13] Encoding duration: 0s
+c [w = 13] Number of clauses: 46209
+c [w = 13] Number of irredundant clauses: 45857
+c [w = 13] Number of variables: 8748
+c [w = 13] SAT Solving starts:
+c [w = 12] Encoding duration: 0s
+c [w = 12] Number of clauses: 46273
+c [w = 12] Number of irredundant clauses: 45929
+c [w = 12] Number of variables: 8586
+c [w = 12] SAT Solving starts:
+c [w = 13] Solving duration: 109 ms
+c [w = 13] Answer: 
+s [w = 13] SAT (w = 13)
+c [w = 13] Solution check = 13.
+c [w = 13] Result: 10
+c Max width SAT is set to 13
+c Kill lower pid 12.
+c Signal interruption.
+c Child pid 12 - 199385 terminated by signal 15
+c All children have completed their tasks or were terminated.
+r
+r Final results: 
+r Max width SAT:        13
+c Signal interruption.
+r Min width UNSAT:      -
+r Total real time: 134 ms
+r Total memory consumed 23.9 MB
+r
+r
+Command executed successfully: F-curtis54.

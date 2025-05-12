@@ -1,0 +1,35 @@
+/home/hvanh28/anti-bandwidth-scl-extend/build/abw_enc /home/hvanh28/anti-bandwidth-scl-extend/build/Benchmarks/W-685_bus.mtx.rnd --ladder -symmetry-break f -limit-real-time 1800 -limit-memory 30000 -process-count 4
+c LadderEncoder 1.0.
+c Real time limit is set to 1800.
+c Memory limit is set to 30000.
+c Iterative strategy: from LB to UB.
+c LB-w = 136 (LB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c UB-w = 136 (UB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c [w = 136] Start task in PID: 368124.
+c [w = 136] Antibandwidth problem with w = 136 (W-685_bus.mtx.rnd):
+c [w = 136] Initializing CaDiCaL (version 1.2.1).
+c [w = 136] Configuring CaDiCaL as --sat (1).
+c [w = 136] Initializing a Ladder encoder with n = 685.
+c [w = 136] Encoding starts with w = 136:
+c [w = 136] Encoding duration: 2s
+c [w = 136] Number of clauses: 7197157
+c [w = 136] Number of irredundant clauses: 7194957
+c [w = 136] Number of variables: 1371370
+c [w = 136] SAT Solving starts:
+c [w = 136] Solving duration: 4944 ms
+c [w = 136] Answer: 
+s [w = 136] SAT (w = 136)
+c [w = 136] Solution check = 136.
+c [w = 136] Result: 10
+c Max width SAT is set to 136
+c All children have completed their tasks or were terminated.
+r
+r Final results: 
+r Max width SAT:        136
+r Min width UNSAT:      -
+r Total real time: 7600 ms
+c Signal interruption.
+r Total memory consumed 1161.8 MB
+r
+r
+Command executed successfully: W-685_bus.

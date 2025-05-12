@@ -1,0 +1,339 @@
+/home/hvanh28/anti-bandwidth-scl-extend/build/abw_enc /home/hvanh28/anti-bandwidth-scl-extend/build/Benchmarks/I-ash85.mtx.rnd --ladder -symmetry-break f -limit-real-time 1800 -limit-memory 30000 -process-count 4
+c LadderEncoder 1.0.
+c Real time limit is set to 1800.
+c Memory limit is set to 30000.
+c Iterative strategy: from LB to UB.
+c LB-w = 19 (LB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c UB-w = 27 (UB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c [w = 19] Start task in PID: 404157.
+c [w = 19] Antibandwidth problem with w = 19 (I-ash85.mtx.rnd):
+c [w = 20] Start task in PID: 404158.
+c [w = 20] Antibandwidth problem with w = 20 (I-ash85.mtx.rnd):
+c [w = 19] Initializing CaDiCaL (version 1.2.1).
+c [w = 19] Configuring CaDiCaL as --sat (1).
+c [w = 20] Initializing CaDiCaL (version 1.2.1).
+c [w = 20] Configuring CaDiCaL as --sat (1).
+c [w = 19] Initializing a Ladder encoder with n = 85.
+c [w = 19] Encoding starts with w = 19:
+c [w = 20] Initializing a Ladder encoder with n = 85.
+c [w = 20] Encoding starts with w = 20:
+c [w = 21] Start task in PID: 404159.
+c [w = 21] Antibandwidth problem with w = 21 (I-ash85.mtx.rnd):
+c [w = 21] Initializing CaDiCaL (version 1.2.1).
+c [w = 21] Configuring CaDiCaL as --sat (1).
+c [w = 21] Initializing a Ladder encoder with n = 85.
+c [w = 21] Encoding starts with w = 21:
+c [w = 22] Start task in PID: 404160.
+c [w = 22] Antibandwidth problem with w = 22 (I-ash85.mtx.rnd):
+c [w = 22] Initializing CaDiCaL (version 1.2.1).
+c [w = 22] Configuring CaDiCaL as --sat (1).
+c [w = 22] Initializing a Ladder encoder with n = 85.
+c [w = 22] Encoding starts with w = 22:
+c [w = 22] Encoding duration: 0s
+c [w = 22] Number of clauses: 116695
+c [w = 22] Number of irredundant clauses: 116406
+c [w = 22] Number of variables: 20400
+c [w = 22] SAT Solving starts:
+c [w = 21] Encoding duration: 0s
+c [w = 21] Number of clauses: 121504
+c [w = 21] Number of irredundant clauses: 121194
+c [w = 21] Number of variables: 21760
+c [w = 21] SAT Solving starts:
+c [w = 19] Encoding duration: 0s
+c [w = 19] Number of clauses: 121896
+c [w = 19] Number of irredundant clauses: 121585
+c [w = 19] Number of variables: 21250
+c [w = 19] SAT Solving starts:
+c [w = 20] Encoding duration: 0s
+c [w = 20] Number of clauses: 121700
+c [w = 20] Number of irredundant clauses: 121385
+c [w = 20] Number of variables: 21505
+c [w = 20] SAT Solving starts:
+c [w = 19] Solving duration: 543 ms
+c [w = 19] Answer: 
+s [w = 19] SAT (w = 19)
+c [w = 19] Solution check = 19.
+c [w = 19] Result: 10
+c Max width SAT is set to 19
+c [w = 23] Start task in PID: 404167.
+c [w = 23] Antibandwidth problem with w = 23 (I-ash85.mtx.rnd):
+c [w = 23] Initializing CaDiCaL (version 1.2.1).
+c [w = 23] Configuring CaDiCaL as --sat (1).
+c [w = 23] Initializing a Ladder encoder with n = 85.
+c [w = 23] Encoding starts with w = 23:
+c [w = 23] Encoding duration: 0s
+c [w = 23] Number of clauses: 116244
+c [w = 23] Number of irredundant clauses: 115940
+c [w = 23] Number of variables: 20570
+c [w = 23] SAT Solving starts:
+c [w = 20] Solving duration: 1710 ms
+c [w = 20] Answer: 
+s [w = 20] SAT (w = 20)
+c [w = 20] Solution check = 20.
+c [w = 20] Result: 10
+c Max width SAT is set to 20
+c [w = 24] Start task in PID: 404198.
+c [w = 24] Antibandwidth problem with w = 24 (I-ash85.mtx.rnd):
+c [w = 24] Initializing CaDiCaL (version 1.2.1).
+c [w = 24] Configuring CaDiCaL as --sat (1).
+c [w = 24] Initializing a Ladder encoder with n = 85.
+c [w = 24] Encoding starts with w = 24:
+c [w = 24] Encoding duration: 0s
+c [w = 24] Number of clauses: 115793
+c [w = 24] Number of irredundant clauses: 115486
+c [w = 24] Number of variables: 20740
+c [w = 24] SAT Solving starts:
+c [w = 21] Solving duration: 4750 ms
+c [w = 21] Answer: 
+s [w = 21] SAT (w = 21)
+c [w = 21] Solution check = 21.
+c [w = 21] Result: 10
+c Max width SAT is set to 21
+c [w = 25] Start task in PID: 404199.
+c [w = 25] Antibandwidth problem with w = 25 (I-ash85.mtx.rnd):
+c [w = 25] Initializing CaDiCaL (version 1.2.1).
+c [w = 25] Configuring CaDiCaL as --sat (1).
+c [w = 25] Initializing a Ladder encoder with n = 85.
+c [w = 25] Encoding starts with w = 25:
+c [w = 25] Encoding duration: 0s
+c [w = 25] Number of clauses: 115342
+c [w = 25] Number of irredundant clauses: 115032
+c [w = 25] Number of variables: 20910
+c [w = 25] SAT Solving starts:
+c [Lim] Sampler:        Memory: 176.6 MB        Real time: 10s  Elapsed time: 40s
+c [w = 22] Solving duration: 17847 ms
+c [w = 22] Answer: 
+s [w = 22] SAT (w = 22)
+c [w = 22] Solution check = 22.
+c [w = 22] Result: 10
+c Max width SAT is set to 22
+c [w = 26] Start task in PID: 404297.
+c [w = 26] Antibandwidth problem with w = 26 (I-ash85.mtx.rnd):
+c [w = 26] Initializing CaDiCaL (version 1.2.1).
+c [w = 26] Configuring CaDiCaL as --sat (1).
+c [w = 26] Initializing a Ladder encoder with n = 85.
+c [w = 26] Encoding starts with w = 26:
+c [w = 26] Encoding duration: 0s
+c [w = 26] Number of clauses: 114891
+c [w = 26] Number of irredundant clauses: 114578
+c [w = 26] Number of variables: 21080
+c [w = 26] SAT Solving starts:
+c [Lim] Sampler:        Memory: 184.9 MB        Real time: 20s  Elapsed time: 80.0002s
+c [Lim] Sampler:        Memory: 179 MB  Real time: 30.0001s     Elapsed time: 120s
+c [Lim] Sampler:        Memory: 216.5 MB        Real time: 40s  Elapsed time: 160s
+c [Lim] Sampler:        Memory: 249.3 MB        Real time: 49.9998s     Elapsed time: 199.999s
+c [Lim] Sampler:        Memory: 252.7 MB        Real time: 59.9997s     Elapsed time: 239.999s
+c [w = 23] Solving duration: 65535 ms
+c [w = 23] Answer: 
+s [w = 23] SAT (w = 23)
+c [w = 23] Solution check = 23.
+c [w = 23] Result: 10
+c Max width SAT is set to 23
+c [w = 27] Start task in PID: 404473.
+c [w = 27] Antibandwidth problem with w = 27 (I-ash85.mtx.rnd):
+c [w = 27] Initializing CaDiCaL (version 1.2.1).
+c [w = 27] Configuring CaDiCaL as --sat (1).
+c [w = 27] Initializing a Ladder encoder with n = 85.
+c [w = 27] Encoding starts with w = 27:
+c [w = 27] Encoding duration: 0s
+c [w = 27] Number of clauses: 114440
+c [w = 27] Number of irredundant clauses: 114124
+c [w = 27] Number of variables: 21250
+c [w = 27] SAT Solving starts:
+c [w = 27] Solving duration: 966 ms
+c [w = 27] Answer: 
+s [w = 27] UNSAT (w = 27)
+c [w = 27] Result: 20
+c Min width UNSAT is set to 27
+c [Lim] Sampler:        Memory: 191.7 MB        Real time: 69.9995s     Elapsed time: 276.898s
+c [Lim] Sampler:        Memory: 194.8 MB        Real time: 79.9994s     Elapsed time: 306.897s
+c [Lim] Sampler:        Memory: 226.1 MB        Real time: 89.9992s     Elapsed time: 336.895s
+c [Lim] Sampler:        Memory: 221.7 MB        Real time: 99.999s      Elapsed time: 366.894s
+c [Lim] Sampler:        Memory: 217.8 MB        Real time: 109.999s     Elapsed time: 396.893s
+c [Lim] Sampler:        Memory: 220.4 MB        Real time: 119.999s     Elapsed time: 426.892s
+c [Lim] Sampler:        Memory: 241.8 MB        Real time: 129.999s     Elapsed time: 456.891s
+c [Lim] Sampler:        Memory: 185.7 MB        Real time: 139.999s     Elapsed time: 486.889s
+c [Lim] Sampler:        Memory: 217.6 MB        Real time: 150s Elapsed time: 516.888s
+c [Lim] Sampler:        Memory: 218.7 MB        Real time: 160.001s     Elapsed time: 546.887s
+c [Lim] Sampler:        Memory: 230.7 MB        Real time: 170.001s     Elapsed time: 576.886s
+c [Lim] Sampler:        Memory: 233.4 MB        Real time: 180.002s     Elapsed time: 606.884s
+c [Lim] Sampler:        Memory: 216.2 MB        Real time: 190.002s     Elapsed time: 636.883s
+c [Lim] Sampler:        Memory: 247.6 MB        Real time: 200.003s     Elapsed time: 666.882s
+c [Lim] Sampler:        Memory: 279.2 MB        Real time: 210.004s     Elapsed time: 696.881s
+c [Lim] Sampler:        Memory: 303.9 MB        Real time: 220.004s     Elapsed time: 726.88s
+c [Lim] Sampler:        Memory: 292.4 MB        Real time: 230.005s     Elapsed time: 756.878s
+c [Lim] Sampler:        Memory: 305.1 MB        Real time: 240.005s     Elapsed time: 786.877s
+c [Lim] Sampler:        Memory: 275 MB  Real time: 250.006s     Elapsed time: 816.876s
+c [Lim] Sampler:        Memory: 297.1 MB        Real time: 260.007s     Elapsed time: 846.875s
+c [Lim] Sampler:        Memory: 285.7 MB        Real time: 270.007s     Elapsed time: 876.873s
+c [Lim] Sampler:        Memory: 308.8 MB        Real time: 280.008s     Elapsed time: 906.872s
+c [Lim] Sampler:        Memory: 308.7 MB        Real time: 290.008s     Elapsed time: 936.871s
+c [Lim] Sampler:        Memory: 331.9 MB        Real time: 300.009s     Elapsed time: 966.87s
+c [Lim] Sampler:        Memory: 328.1 MB        Real time: 310.01s      Elapsed time: 996.869s
+c [Lim] Sampler:        Memory: 329.1 MB        Real time: 320.01s      Elapsed time: 1026.87s
+c [Lim] Sampler:        Memory: 309.8 MB        Real time: 330.011s     Elapsed time: 1056.87s
+c [Lim] Sampler:        Memory: 305.8 MB        Real time: 340.012s     Elapsed time: 1086.88s
+c [Lim] Sampler:        Memory: 313.7 MB        Real time: 350.012s     Elapsed time: 1116.88s
+c [Lim] Sampler:        Memory: 320.1 MB        Real time: 360.013s     Elapsed time: 1146.89s
+c [Lim] Sampler:        Memory: 327.5 MB        Real time: 370.013s     Elapsed time: 1176.89s
+c [Lim] Sampler:        Memory: 330.1 MB        Real time: 380.014s     Elapsed time: 1206.9s
+c [Lim] Sampler:        Memory: 291.7 MB        Real time: 390.015s     Elapsed time: 1236.9s
+c [Lim] Sampler:        Memory: 318 MB  Real time: 400.015s     Elapsed time: 1266.91s
+c [Lim] Sampler:        Memory: 308.1 MB        Real time: 410.016s     Elapsed time: 1296.91s
+c [Lim] Sampler:        Memory: 265.3 MB        Real time: 420.016s     Elapsed time: 1326.92s
+c [Lim] Sampler:        Memory: 318.8 MB        Real time: 430.017s     Elapsed time: 1356.92s
+c [w = 26] Solving duration: 415211 ms
+c [w = 26] Answer: 
+s [w = 26] UNSAT (w = 26)
+c [w = 26] Result: 20
+c Min width UNSAT is set to 26
+c [Lim] Sampler:        Memory: 248.2 MB        Real time: 440.018s     Elapsed time: 1378.62s
+c [Lim] Sampler:        Memory: 218 MB  Real time: 450.018s     Elapsed time: 1398.61s
+c [Lim] Sampler:        Memory: 241.4 MB        Real time: 460.019s     Elapsed time: 1418.61s
+c [Lim] Sampler:        Memory: 256.6 MB        Real time: 470.019s     Elapsed time: 1438.6s
+c [Lim] Sampler:        Memory: 250.5 MB        Real time: 480.02s      Elapsed time: 1458.6s
+c [Lim] Sampler:        Memory: 247.3 MB        Real time: 490.021s     Elapsed time: 1478.59s
+c [Lim] Sampler:        Memory: 269.1 MB        Real time: 500.021s     Elapsed time: 1498.59s
+c [Lim] Sampler:        Memory: 269.3 MB        Real time: 510.022s     Elapsed time: 1518.58s
+c [Lim] Sampler:        Memory: 274.6 MB        Real time: 520.02s      Elapsed time: 1538.58s
+c [Lim] Sampler:        Memory: 294.6 MB        Real time: 530.018s     Elapsed time: 1558.57s
+c [Lim] Sampler:        Memory: 272.9 MB        Real time: 540.015s     Elapsed time: 1578.57s
+c [Lim] Sampler:        Memory: 283.8 MB        Real time: 550.013s     Elapsed time: 1598.56s
+c [Lim] Sampler:        Memory: 272.4 MB        Real time: 560.01s      Elapsed time: 1618.56s
+c [Lim] Sampler:        Memory: 275.2 MB        Real time: 570.008s     Elapsed time: 1638.55s
+c [Lim] Sampler:        Memory: 279.4 MB        Real time: 580.005s     Elapsed time: 1658.55s
+c [Lim] Sampler:        Memory: 282.5 MB        Real time: 590.003s     Elapsed time: 1678.55s
+c [Lim] Sampler:        Memory: 279.6 MB        Real time: 600.001s     Elapsed time: 1698.54s
+c [Lim] Sampler:        Memory: 281.4 MB        Real time: 609.998s     Elapsed time: 1718.54s
+c [Lim] Sampler:        Memory: 279.2 MB        Real time: 619.996s     Elapsed time: 1738.53s
+c [Lim] Sampler:        Memory: 290 MB  Real time: 629.993s     Elapsed time: 1758.53s
+c [Lim] Sampler:        Memory: 284.9 MB        Real time: 639.991s     Elapsed time: 1778.52s
+c [Lim] Sampler:        Memory: 306.4 MB        Real time: 649.988s     Elapsed time: 1798.52s
+c [Lim] Sampler:        Memory: 281.7 MB        Real time: 659.986s     Elapsed time: 1818.51s
+c [Lim] Sampler:        Memory: 283 MB  Real time: 669.983s     Elapsed time: 1838.51s
+c [Lim] Sampler:        Memory: 284.3 MB        Real time: 679.981s     Elapsed time: 1858.5s
+c [Lim] Sampler:        Memory: 283.9 MB        Real time: 689.979s     Elapsed time: 1878.5s
+c [Lim] Sampler:        Memory: 289.1 MB        Real time: 699.976s     Elapsed time: 1898.49s
+c [Lim] Sampler:        Memory: 290.2 MB        Real time: 709.974s     Elapsed time: 1918.49s
+c [Lim] Sampler:        Memory: 292.2 MB        Real time: 719.971s     Elapsed time: 1938.48s
+c [Lim] Sampler:        Memory: 290.3 MB        Real time: 729.969s     Elapsed time: 1958.48s
+c [Lim] Sampler:        Memory: 230.4 MB        Real time: 739.966s     Elapsed time: 1978.47s
+c [Lim] Sampler:        Memory: 306.1 MB        Real time: 749.964s     Elapsed time: 1998.47s
+c [Lim] Sampler:        Memory: 316.5 MB        Real time: 759.961s     Elapsed time: 2018.46s
+c [Lim] Sampler:        Memory: 335.8 MB        Real time: 769.959s     Elapsed time: 2038.46s
+c [Lim] Sampler:        Memory: 359.8 MB        Real time: 779.957s     Elapsed time: 2058.45s
+c [Lim] Sampler:        Memory: 331.3 MB        Real time: 789.954s     Elapsed time: 2078.45s
+c [Lim] Sampler:        Memory: 275.6 MB        Real time: 799.952s     Elapsed time: 2098.44s
+c [Lim] Sampler:        Memory: 311.7 MB        Real time: 809.949s     Elapsed time: 2118.44s
+c [Lim] Sampler:        Memory: 311.7 MB        Real time: 819.947s     Elapsed time: 2138.43s
+c [Lim] Sampler:        Memory: 315.6 MB        Real time: 829.944s     Elapsed time: 2158.43s
+c [Lim] Sampler:        Memory: 328.8 MB        Real time: 839.942s     Elapsed time: 2178.42s
+c [Lim] Sampler:        Memory: 331.8 MB        Real time: 849.94s      Elapsed time: 2198.42s
+c [Lim] Sampler:        Memory: 340.7 MB        Real time: 859.937s     Elapsed time: 2218.41s
+c [Lim] Sampler:        Memory: 364 MB  Real time: 869.935s     Elapsed time: 2238.41s
+c [Lim] Sampler:        Memory: 342.1 MB        Real time: 879.932s     Elapsed time: 2258.4s
+c [Lim] Sampler:        Memory: 342.9 MB        Real time: 889.93s      Elapsed time: 2278.4s
+c [Lim] Sampler:        Memory: 352.4 MB        Real time: 899.927s     Elapsed time: 2298.39s
+c [Lim] Sampler:        Memory: 371.5 MB        Real time: 909.925s     Elapsed time: 2318.39s
+c [Lim] Sampler:        Memory: 352.9 MB        Real time: 919.922s     Elapsed time: 2338.38s
+c [Lim] Sampler:        Memory: 306.7 MB        Real time: 929.92s      Elapsed time: 2358.38s
+c [Lim] Sampler:        Memory: 306.7 MB        Real time: 939.918s     Elapsed time: 2378.37s
+c [Lim] Sampler:        Memory: 317.4 MB        Real time: 949.915s     Elapsed time: 2398.37s
+c [Lim] Sampler:        Memory: 342.8 MB        Real time: 959.913s     Elapsed time: 2418.36s
+c [Lim] Sampler:        Memory: 350.1 MB        Real time: 969.91s      Elapsed time: 2438.36s
+c [Lim] Sampler:        Memory: 345 MB  Real time: 979.908s     Elapsed time: 2458.35s
+c [Lim] Sampler:        Memory: 345 MB  Real time: 989.905s     Elapsed time: 2478.35s
+c [Lim] Sampler:        Memory: 346.7 MB        Real time: 999.903s     Elapsed time: 2498.34s
+c [Lim] Sampler:        Memory: 362.5 MB        Real time: 1009.9s      Elapsed time: 2518.34s
+c [Lim] Sampler:        Memory: 280.3 MB        Real time: 1019.9s      Elapsed time: 2538.34s
+c [Lim] Sampler:        Memory: 328 MB  Real time: 1029.9s      Elapsed time: 2558.33s
+c [Lim] Sampler:        Memory: 338.1 MB        Real time: 1039.89s     Elapsed time: 2578.33s
+c [Lim] Sampler:        Memory: 349.4 MB        Real time: 1049.89s     Elapsed time: 2598.32s
+c [Lim] Sampler:        Memory: 349.4 MB        Real time: 1059.89s     Elapsed time: 2618.32s
+c [Lim] Sampler:        Memory: 345.5 MB        Real time: 1069.89s     Elapsed time: 2638.31s
+c [Lim] Sampler:        Memory: 309.2 MB        Real time: 1079.88s     Elapsed time: 2658.31s
+c [Lim] Sampler:        Memory: 305.8 MB        Real time: 1089.88s     Elapsed time: 2678.3s
+c [Lim] Sampler:        Memory: 304.4 MB        Real time: 1099.88s     Elapsed time: 2698.3s
+c [Lim] Sampler:        Memory: 332 MB  Real time: 1109.88s     Elapsed time: 2718.29s
+c [Lim] Sampler:        Memory: 401.9 MB        Real time: 1119.87s     Elapsed time: 2738.29s
+c [Lim] Sampler:        Memory: 352.5 MB        Real time: 1129.87s     Elapsed time: 2758.28s
+c [Lim] Sampler:        Memory: 376.5 MB        Real time: 1139.87s     Elapsed time: 2778.28s
+c [Lim] Sampler:        Memory: 361.6 MB        Real time: 1149.87s     Elapsed time: 2798.27s
+c [Lim] Sampler:        Memory: 359 MB  Real time: 1159.86s     Elapsed time: 2818.27s
+c [Lim] Sampler:        Memory: 313 MB  Real time: 1169.86s     Elapsed time: 2838.26s
+c [Lim] Sampler:        Memory: 313.9 MB        Real time: 1179.86s     Elapsed time: 2858.26s
+c [Lim] Sampler:        Memory: 340.9 MB        Real time: 1189.86s     Elapsed time: 2878.25s
+c [Lim] Sampler:        Memory: 344.9 MB        Real time: 1199.85s     Elapsed time: 2898.25s
+c [Lim] Sampler:        Memory: 346.6 MB        Real time: 1209.85s     Elapsed time: 2918.24s
+c [Lim] Sampler:        Memory: 313.1 MB        Real time: 1219.85s     Elapsed time: 2938.24s
+c [Lim] Sampler:        Memory: 341.6 MB        Real time: 1229.85s     Elapsed time: 2958.23s
+c [Lim] Sampler:        Memory: 341.2 MB        Real time: 1239.84s     Elapsed time: 2978.23s
+c [Lim] Sampler:        Memory: 346.1 MB        Real time: 1249.84s     Elapsed time: 2998.22s
+c [Lim] Sampler:        Memory: 372.7 MB        Real time: 1259.84s     Elapsed time: 3018.22s
+c [Lim] Sampler:        Memory: 374.5 MB        Real time: 1269.84s     Elapsed time: 3038.21s
+c [Lim] Sampler:        Memory: 380.2 MB        Real time: 1279.83s     Elapsed time: 3058.21s
+c [Lim] Sampler:        Memory: 380.2 MB        Real time: 1289.83s     Elapsed time: 3078.2s
+c [Lim] Sampler:        Memory: 375.2 MB        Real time: 1299.83s     Elapsed time: 3098.2s
+c [Lim] Sampler:        Memory: 378.8 MB        Real time: 1309.83s     Elapsed time: 3118.19s
+c [Lim] Sampler:        Memory: 369.2 MB        Real time: 1319.82s     Elapsed time: 3138.19s
+c [Lim] Sampler:        Memory: 360.6 MB        Real time: 1329.82s     Elapsed time: 3158.18s
+c [Lim] Sampler:        Memory: 360.6 MB        Real time: 1339.82s     Elapsed time: 3178.18s
+c [Lim] Sampler:        Memory: 363.6 MB        Real time: 1349.82s     Elapsed time: 3198.17s
+c [Lim] Sampler:        Memory: 364.4 MB        Real time: 1359.82s     Elapsed time: 3218.17s
+c [Lim] Sampler:        Memory: 393.3 MB        Real time: 1369.81s     Elapsed time: 3238.16s
+c [Lim] Sampler:        Memory: 366.5 MB        Real time: 1379.81s     Elapsed time: 3258.16s
+c [Lim] Sampler:        Memory: 366.5 MB        Real time: 1389.81s     Elapsed time: 3278.15s
+c [Lim] Sampler:        Memory: 370.3 MB        Real time: 1399.81s     Elapsed time: 3298.15s
+c [Lim] Sampler:        Memory: 370.3 MB        Real time: 1409.8s      Elapsed time: 3318.14s
+c [Lim] Sampler:        Memory: 367.2 MB        Real time: 1419.8s      Elapsed time: 3338.14s
+c [Lim] Sampler:        Memory: 371.8 MB        Real time: 1429.8s      Elapsed time: 3358.14s
+c [Lim] Sampler:        Memory: 420.3 MB        Real time: 1439.8s      Elapsed time: 3378.13s
+c [Lim] Sampler:        Memory: 371.7 MB        Real time: 1449.79s     Elapsed time: 3398.13s
+c [Lim] Sampler:        Memory: 375.7 MB        Real time: 1459.79s     Elapsed time: 3418.12s
+c [Lim] Sampler:        Memory: 375.7 MB        Real time: 1469.79s     Elapsed time: 3438.12s
+c [Lim] Sampler:        Memory: 374.2 MB        Real time: 1479.79s     Elapsed time: 3458.11s
+c [Lim] Sampler:        Memory: 365.7 MB        Real time: 1489.78s     Elapsed time: 3478.11s
+c [Lim] Sampler:        Memory: 365.7 MB        Real time: 1499.78s     Elapsed time: 3498.1s
+c [Lim] Sampler:        Memory: 350.9 MB        Real time: 1509.78s     Elapsed time: 3518.1s
+c [Lim] Sampler:        Memory: 364.7 MB        Real time: 1519.78s     Elapsed time: 3538.09s
+c [Lim] Sampler:        Memory: 364.7 MB        Real time: 1529.77s     Elapsed time: 3558.09s
+c [Lim] Sampler:        Memory: 367.5 MB        Real time: 1539.77s     Elapsed time: 3578.08s
+c [Lim] Sampler:        Memory: 373.4 MB        Real time: 1549.77s     Elapsed time: 3598.08s
+c [Lim] Sampler:        Memory: 373.4 MB        Real time: 1559.77s     Elapsed time: 3618.07s
+c [Lim] Sampler:        Memory: 380.7 MB        Real time: 1569.76s     Elapsed time: 3638.07s
+c [Lim] Sampler:        Memory: 407.3 MB        Real time: 1579.76s     Elapsed time: 3658.06s
+c [Lim] Sampler:        Memory: 407.3 MB        Real time: 1589.76s     Elapsed time: 3678.06s
+c [Lim] Sampler:        Memory: 374 MB  Real time: 1599.76s     Elapsed time: 3698.05s
+c [Lim] Sampler:        Memory: 376.4 MB        Real time: 1609.75s     Elapsed time: 3718.05s
+c [Lim] Sampler:        Memory: 376.4 MB        Real time: 1619.75s     Elapsed time: 3738.04s
+c [Lim] Sampler:        Memory: 373.8 MB        Real time: 1629.75s     Elapsed time: 3758.04s
+c [Lim] Sampler:        Memory: 379.8 MB        Real time: 1639.75s     Elapsed time: 3778.03s
+c [Lim] Sampler:        Memory: 379.8 MB        Real time: 1649.74s     Elapsed time: 3798.03s
+c [Lim] Sampler:        Memory: 427.2 MB        Real time: 1659.74s     Elapsed time: 3818.02s
+c [Lim] Sampler:        Memory: 323.3 MB        Real time: 1669.74s     Elapsed time: 3838.02s
+c [Lim] Sampler:        Memory: 343.5 MB        Real time: 1679.74s     Elapsed time: 3858.01s
+c [Lim] Sampler:        Memory: 343.5 MB        Real time: 1689.73s     Elapsed time: 3878.01s
+c [Lim] Sampler:        Memory: 366.9 MB        Real time: 1699.73s     Elapsed time: 3898s
+c [Lim] Sampler:        Memory: 366.9 MB        Real time: 1709.73s     Elapsed time: 3918s
+c [Lim] Sampler:        Memory: 368.8 MB        Real time: 1719.73s     Elapsed time: 3937.99s
+c [Lim] Sampler:        Memory: 361.1 MB        Real time: 1729.72s     Elapsed time: 3957.99s
+c [Lim] Sampler:        Memory: 361.1 MB        Real time: 1739.72s     Elapsed time: 3977.98s
+c [Lim] Sampler:        Memory: 364.2 MB        Real time: 1749.72s     Elapsed time: 3997.98s
+c [Lim] Sampler:        Memory: 319.6 MB        Real time: 1759.72s     Elapsed time: 4017.97s
+c [Lim] Sampler:        Memory: 322.5 MB        Real time: 1769.71s     Elapsed time: 4037.97s
+c [Lim] Sampler:        Memory: 349.6 MB        Real time: 1779.71s     Elapsed time: 4057.96s
+c [Lim] Sampler:        Memory: 355.3 MB        Real time: 1789.71s     Elapsed time: 4077.96s
+c [Lim] Sampler:        Memory: 379.6 MB        Real time: 1799.71s     Elapsed time: 4097.96s
+c [Lim] End with result: 65024
+c All children have completed their tasks or were terminated.
+r
+r Final results: 
+c Signal interruption.
+c Signal interruption.
+r Max width SAT:        23
+r Min width UNSAT:      26
+r Total real time: 1805566 ms
+r Total memory consumed 496.6 MB
+r
+r
+Command executed successfully: I-ash85.

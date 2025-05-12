@@ -55,7 +55,7 @@ namespace SATABP
         {
             // No symmetry breaking
         }
-        std::cout << "c\tEncode symmetry breaking with option: " << symmetry_break_point << "." << std::endl;
+        // std::cout << "c\tEncode symmetry breaking with option: " << symmetry_break_point << "." << std::endl;
 
         construct_window_bdds(w);
         glue_window_bdds();
@@ -69,11 +69,11 @@ namespace SATABP
 
         encode_column_eo();
 
-        std::cout << "c\tLabels and Vertices aux var: " << num_l_v_aux_vars << std::endl;
-        std::cout << "c\tLabels and Vertices constraints:  " << num_l_v_constraints << std::endl;
-        std::cout << "c\tObj k aux var: " << num_obj_k_aux_vars << std::endl;
-        std::cout << "c\tObj k constraints: " << num_obj_k_constraints << std::endl;
-        std::cout << "c\tObj k glue staircase constraints: " << num_obj_k_glue_staircase_constraint << std::endl;
+        // std::cout << "c\tLabels and Vertices aux var: " << num_l_v_aux_vars << std::endl;
+        // std::cout << "c\tLabels and Vertices constraints:  " << num_l_v_constraints << std::endl;
+        // std::cout << "c\tObj k aux var: " << num_obj_k_aux_vars << std::endl;
+        // std::cout << "c\tObj k constraints: " << num_obj_k_constraints << std::endl;
+        // std::cout << "c\tObj k glue staircase constraints: " << num_obj_k_glue_staircase_constraint << std::endl;
     };
 
     void DuplexEncoder::seq_encode_column_eo()

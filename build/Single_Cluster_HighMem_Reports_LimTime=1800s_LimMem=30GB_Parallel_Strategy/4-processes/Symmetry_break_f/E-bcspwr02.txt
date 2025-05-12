@@ -1,0 +1,51 @@
+/home/hvanh28/anti-bandwidth-scl-extend/build/abw_enc /home/hvanh28/anti-bandwidth-scl-extend/build/Benchmarks/E-bcspwr02.mtx.rnd --ladder -symmetry-break f -limit-real-time 1800 -limit-memory 30000 -process-count 4
+c LadderEncoder 1.0.
+c Real time limit is set to 1800.
+c Memory limit is set to 30000.
+c Iterative strategy: from LB to UB.
+c LB-w = 21 (LB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c UB-w = 22 (UB in Sinnl - A note on computational approaches for the antibandwidth problem).
+c [w = 21] Start task in PID: 368199.
+c [w = 21] Antibandwidth problem with w = 21 (E-bcspwr02.mtx.rnd):
+c [w = 22] Start task in PID: 368200.
+c [w = 21] Initializing CaDiCaL (version 1.2.1).
+c [w = 21] Configuring CaDiCaL as --sat (1).
+c [w = 21] Initializing a Ladder encoder with n = 49.
+c [w = 21] Encoding starts with w = 21:
+c [w = 22] Antibandwidth problem with w = 22 (E-bcspwr02.mtx.rnd):
+c [w = 22] Initializing CaDiCaL (version 1.2.1).
+c [w = 22] Configuring CaDiCaL as --sat (1).
+c [w = 22] Initializing a Ladder encoder with n = 49.
+c [w = 22] Encoding starts with w = 22:
+c [w = 21] Encoding duration: 0s
+c [w = 21] Number of clauses: 26408
+c [w = 21] Number of irredundant clauses: 26264
+c [w = 21] Number of variables: 6762
+c [w = 21] SAT Solving starts:
+c [w = 22] Encoding duration: 0s
+c [w = 22] Number of clauses: 26270
+c [w = 22] Number of irredundant clauses: 26124
+c [w = 22] Number of variables: 6811
+c [w = 22] SAT Solving starts:
+c [w = 21] Solving duration: 109 ms
+c [w = 21] Answer: 
+s [w = 21] SAT (w = 21)
+c [w = 21] Solution check = 21.
+c [w = 21] Result: 10
+c Max width SAT is set to 21
+c [w = 22] Solving duration: 1396 ms
+c [w = 22] Answer: 
+s [w = 22] UNSAT (w = 22)
+c [w = 22] Result: 20
+c Min width UNSAT is set to 22
+c All children have completed their tasks or were terminated.
+r
+r Final results: 
+r Max width SAT:        21
+r Min width UNSAT:      22
+r Total real time: 1408 ms
+c Signal interruption.
+r Total memory consumed 19.7 MB
+r
+r
+Command executed successfully: E-bcspwr02.

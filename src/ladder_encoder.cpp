@@ -7,7 +7,11 @@
 #include <assert.h>
 #include <cmath>
 
-
+/*
+    Find more details about New Sequential Counter Encoding in
+    document named "New Sequential Counter Encoding for Cardinality
+    Constraints" - PhD To Van Khanh et al.
+*/
 namespace SATABP
 {
     LadderEncoder::LadderEncoder(Graph *g, ClauseContainer *cc, VarHandler *vh) : Encoder(g, cc, vh)
@@ -77,7 +81,7 @@ namespace SATABP
         {
             // No symmetry breaking
         }
-        std::cout << "c\tEncode symmetry breaking with option: " << symmetry_break_point << "." << std::endl;
+        // std::cout << "c\tEncode symmetry breaking with option: " << symmetry_break_point << "." << std::endl;
 
         encode_vertices();
         // encode_labels();
@@ -86,11 +90,11 @@ namespace SATABP
         // Prevent error when build due to unused variables
         (void)node_pairs;
         (void)w;
-        std::cout << "c\tLabels and Vertices aux var: " << aux_vars.size() << std::endl;
-        std::cout << "c\tLabels and Vertices constraints:  " << num_l_v_constraints << std::endl;
-        std::cout << "c\tObj k aux var: " << obj_k_aux_vars.size() << std::endl;
-        std::cout << "c\tObj k constraints: " << num_obj_k_constraints << std::endl;
-        std::cout << "c\tObj k glue staircase constraints: " << num_obj_k_glue_staircase_constraint << std::endl;
+        // std::cout << "c\tLabels and Vertices aux var: " << aux_vars.size() << std::endl;
+        // std::cout << "c\tLabels and Vertices constraints:  " << num_l_v_constraints << std::endl;
+        // std::cout << "c\tObj k aux var: " << obj_k_aux_vars.size() << std::endl;
+        // std::cout << "c\tObj k constraints: " << num_obj_k_constraints << std::endl;
+        // std::cout << "c\tObj k glue staircase constraints: " << num_obj_k_glue_staircase_constraint << std::endl;
     };
 
     void LadderEncoder::encode_vertices()
