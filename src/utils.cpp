@@ -157,13 +157,13 @@ namespace SATABP
     };
 
     /*
-     * input_size: number of nodes -> number of variables will be input_size^2
+     * input_size: number of nodes -> number of variables will be input_size
      */
     VarHandler::VarHandler(int start_id, int input_size = 0) : first_assigned_id(start_id)
     {
         if (input_size > 0)
         {
-            next_to_assign = first_assigned_id + input_size * input_size;
+            next_to_assign = first_assigned_id + input_size;
             last_intput_var = next_to_assign - 1;
         }
         else
@@ -187,4 +187,5 @@ namespace SATABP
     {
         return next_to_assign - first_assigned_id;
     };
+
 }
